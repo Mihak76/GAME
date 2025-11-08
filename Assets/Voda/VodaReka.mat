@@ -48,7 +48,7 @@ Material:
     - _QueueOffset: 0
     - _Refraction: 0.03
     - _Smoothnes: 0.821
-    - _Water_Lerp: 0.522
+    - _Water_Lerp: 0.468
     m_Colors:
     - _UV1: {r: 7, g: 7, b: 0.39, a: 0.3}
     - _UV2: {r: 10, g: 10, b: 0, a: 0}
