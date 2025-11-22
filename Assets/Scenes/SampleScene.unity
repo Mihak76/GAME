@@ -94,7 +94,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 76cd3ecb719675148b4d8484fe0221aa, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -281,7 +281,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 57301444c8eac474ebdb04451084da79, type: 2}
+  sharedProfile: {fileID: 11400000, guid: d47c601055403b445ab41d04027c6f03, type: 2}
 --- !u!4 &40956876
 Transform:
   m_ObjectHideFlags: 0
@@ -702,14 +702,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_Intensity: 0.42
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
   m_Range: 85.8
   m_SpotAngle: 98.45003
   m_InnerSpotAngle: 57.60208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7162,10 +7162,10 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 43.78
+  m_Intensity: 92.49
   m_Range: 18
-  m_SpotAngle: 48.192307
-  m_InnerSpotAngle: 30.98077
+  m_SpotAngle: 42.68461
+  m_InnerSpotAngle: 25.473078
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
