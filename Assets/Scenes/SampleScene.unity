@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.43231574, g: 0.48885143, b: 0.6320754, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 3b3a8c3f49a63ff4087e2080bcfa8846, type: 2}
   m_HaloStrength: 0.334
   m_FlareStrength: 1
@@ -327,7 +327,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1741292002}
-  - {fileID: 565705583}
   - {fileID: 349614979}
   m_Father: {fileID: 229470516}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -532,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUp
   FlashLightOnPlayer: {fileID: 1683623197}
-  PickUpText: {fileID: 342029098}
+  PickUpText: {fileID: 342029100}
 --- !u!1 &268782162
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +714,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.24
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -1594,7 +1593,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6152,7 +6151,7 @@ Transform:
   m_GameObject: {fileID: 349614976}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00027905402, y: -0.000025961972, z: -0.82064867}
+  m_LocalPosition: {x: 0.533, y: -0.141, z: -1.894}
   m_LocalScale: {x: 0.15819888, y: 0.1581989, z: 0.15819888}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6703,6 +6702,7 @@ GameObject:
   - component: {fileID: 565705583}
   - component: {fileID: 565705585}
   - component: {fileID: 565705584}
+  - component: {fileID: 565705586}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -6719,11 +6719,11 @@ Transform:
   m_GameObject: {fileID: 565705582}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00027905402, y: -0.000025961972, z: -0.82064867}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0010410212, y: 0.048713997, z: 1.0939205}
+  m_LocalScale: {x: 3.7545998, y: 3.7545996, z: 3.754599}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 157487362}
+  m_Father: {fileID: 1741292002}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &565705584
 MonoBehaviour:
@@ -6819,6 +6819,21 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &565705586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565705582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: com.cqf.urpvolumetricfog.runtime::VolumetricAdditionalLight
+  anisotropy: 0.25
+  scattering: 1
+  radius: 0.2
 --- !u!1 &739830676
 GameObject:
   m_ObjectHideFlags: 0
@@ -7100,6 +7115,7 @@ GameObject:
   - component: {fileID: 860884512}
   - component: {fileID: 860884514}
   - component: {fileID: 860884513}
+  - component: {fileID: 860884515}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -7116,11 +7132,11 @@ Transform:
   m_GameObject: {fileID: 860884511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00027905402, y: -0.000025961972, z: -0.82064867}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.001047736, y: 0.04871232, z: 1.0939075}
+  m_LocalScale: {x: 3.7545998, y: 3.7545996, z: 3.7545996}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1216617407}
+  m_Father: {fileID: 1188690655}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &860884513
 MonoBehaviour:
@@ -7162,7 +7178,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 92.49
+  m_Intensity: 98.7
   m_Range: 18
   m_SpotAngle: 42.68461
   m_InnerSpotAngle: 25.473078
@@ -7216,6 +7232,21 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &860884515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860884511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: com.cqf.urpvolumetricfog.runtime::VolumetricAdditionalLight
+  anisotropy: 0.25
+  scattering: 1
+  radius: 0.2
 --- !u!1001 &881119127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7412,7 +7443,7 @@ Transform:
   m_GameObject: {fileID: 1049745979}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0000000037271093, y: 1.1641532e-10, z: 0.0000000021973392, w: 1}
-  m_LocalPosition: {x: 0.00010960953, y: -0.012992045, z: -1.1119305}
+  m_LocalPosition: {x: 0.518, y: -0.15, z: -2.155}
   m_LocalScale: {x: 0.26634002, y: 0.26633996, z: 0.26634002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7526,7 +7557,8 @@ Transform:
   m_LocalPosition: {x: -0, y: -0.013, z: -1.112}
   m_LocalScale: {x: 0.26634, y: 0.26634, z: 0.26634}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 860884512}
   m_Father: {fileID: 1216617407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1188690656
@@ -7748,7 +7780,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1188690655}
-  - {fileID: 860884512}
   - {fileID: 1968610428}
   m_Father: {fileID: 1683623198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8338,10 +8369,11 @@ Transform:
   m_GameObject: {fileID: 1741292001}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.013, z: -1.112}
+  m_LocalPosition: {x: 0.527, y: -0.151, z: -2.16}
   m_LocalScale: {x: 0.26634, y: 0.26634, z: 0.26634}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 565705583}
   m_Father: {fileID: 157487362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1741292003
@@ -8953,7 +8985,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.08
       minScalar: 1
       maxCurve:
         serializedVersion: 2

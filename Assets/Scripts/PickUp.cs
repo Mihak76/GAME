@@ -1,33 +1,45 @@
 using UnityEngine;
+using TMPro; // TextMeshPro
 
 public class PickUp : MonoBehaviour
 {
-    public GameObject FlashLightOnPlayer; // svetilka, ki se aktivira
-    public GameObject PickUpText;         // tekst "Press E to pick up"
+    public GameObject FlashLightOnPlayer; 
+    public TMP_Text PickUpText;  // TextMeshPro
 
     void Start()
     {
-        FlashLightOnPlayer.SetActive(false); // na začetku izklopljeno
-        PickUpText.SetActive(false);         // tekst izklopljen
+        FlashLightOnPlayer.SetActive(false);
+
+        // Predgeneriramo tekst
+        PickUpText.gameObject.SetActive(true);
+        var color = PickUpText.color;
+        color.a = 0f;
+        PickUpText.color = color;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            PickUpText.SetActive(true); // pokaže tekst, ko si ob svetilki
+            var color = PickUpText.color;
+            color.a = 1f;
+            PickUpText.color = color;
 
             if (Input.GetKey(KeyCode.E))
             {
-                this.gameObject.SetActive(false);  // pobereš svetilko s tal
-                FlashLightOnPlayer.SetActive(true); // takoj se aktivira svetilka
-                PickUpText.SetActive(false);        // skrije tekst
+                this.gameObject.SetActive(false);
+                FlashLightOnPlayer.SetActive(true);
+
+                color.a = 0f;
+                PickUpText.color = color;
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        PickUpText.SetActive(false); // ko odideš, skrije tekst
+        var color = PickUpText.color;
+        color.a = 0f;
+        PickUpText.color = color;
     }
 }
