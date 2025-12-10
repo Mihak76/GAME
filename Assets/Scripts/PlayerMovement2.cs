@@ -2,26 +2,30 @@ using UnityEngine;
 
 public class PlayerMovement2 : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public CharacterController controller;
     public float speed = 5f;
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
 
-    Vector3 velocity;  
-    bool isGrounded;
+    [Header("Crouch Settings")]
+    public float crouchHeight = 1.0f;
+    public float standingHeight = 2.0f;
+    public float crouchSpeed = 2f;
+    public KeyCode crouchKey = KeyCode.LeftControl;
+    public float crouchTransitionSpeed = 6f;
 
-    // nastavitve za crouch
-    public float crouchHeight = 1.0f;      
-    public float standingHeight = 2.0f;    
-    public float crouchSpeed = 2f;         
-    public KeyCode crouchKey = KeyCode.LeftControl; 
-    public float crouchTransitionSpeed = 6f; 
-    bool isCrouching = false;
-    float targetHeight;
-
-    // sprint
-    public float sprintSpeed = 8f;  // hitrost za sprint
+    [Header("Sprint Settings")]
+    public float sprintSpeed = 8f;
     public KeyCode sprintKey = KeyCode.LeftShift;
+
+    [Header("Animation")]
+    public Animator animator; // Animator na FBX modelu
+
+    private Vector3 velocity;
+    private bool isGrounded;
+    private bool isCrouching = false;
+    private float targetHeight;
 
     void Start()
     {
@@ -31,42 +35,50 @@ public class PlayerMovement2 : MonoBehaviour
 
     void Update()
     {
+        // Check if grounded
         isGrounded = controller.isGrounded;
-
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; 
+            velocity.y = -2f;
         }
 
+        // Get input
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        // if za crouch
+        // Crouch logic
         if (Input.GetKeyDown(crouchKey))
         {
             isCrouching = !isCrouching;
             targetHeight = isCrouching ? crouchHeight : standingHeight;
         }
-
         controller.height = Mathf.Lerp(controller.height, targetHeight, Time.deltaTime * crouchTransitionSpeed);
 
-        // hitrost kak hitro se premikas
+        // Determine current speed
         float currentSpeed = speed;
-
         if (isCrouching)
         {
-            currentSpeed = crouchSpeed; // pomeni da med sprintom ne mores crouchati
+            currentSpeed = crouchSpeed;
         }
-        else if (Input.GetKey(sprintKey)) // za sprint
+        else if (Input.GetKey(sprintKey))
         {
-            currentSpeed = sprintSpeed; 
+            currentSpeed = sprintSpeed;
         }
 
+        // Move player
         controller.Move(move * currentSpeed * Time.deltaTime);
-
+        if (isGrounded && velocity.y < 0)
+{
+    velocity.y = -2f;  // to prepreči, da tone
+}
+        // Gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        // Animation
+        float moveAmount = new Vector3(x, 0, z).magnitude; // koliko se premikaš
+        animator.SetFloat("Speed", moveAmount);
     }
 }
