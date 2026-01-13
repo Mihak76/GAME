@@ -7831,6 +7831,7 @@ GameObject:
   - component: {fileID: 773835863}
   - component: {fileID: 773835862}
   - component: {fileID: 773835864}
+  - component: {fileID: 773835865}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7905,6 +7906,19 @@ MonoBehaviour:
   sprintSpeed: 30
   sprintKey: 304
   animator: {fileID: 172607936}
+--- !u!114 &773835865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773835860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217b1854b63e0184facd2aa451b8b113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameRespawn
+  threshold: 0
 --- !u!1 &826015167
 GameObject:
   m_ObjectHideFlags: 0
