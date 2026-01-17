@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public Camera playerCamera;
+
+    //Shoting
+    public bool isShoting, readyToShoot;
+    bool allowReset = true;
+    public float shootingDelay = 2f;
+
+    //Burst
+    public int bulletPerBurst = 3;
+    public int currentBurst;
+
+    //Spread
+    public float spreadIntensity; 
+
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float bulletVelocity = 30f; 
