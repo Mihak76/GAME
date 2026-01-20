@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Weapon : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class Weapon : MonoBehaviour
 
     public GameObject muzzleEffect;
 
+    //Loading   
+    public float reloadTime;
+    public int magazineSize, bulletsLeft;
+    public bool isReloading;
+
+   
+
 
     public enum ShootingMode
     {
@@ -39,6 +47,8 @@ public class Weapon : MonoBehaviour
     {
         readyToShoot = true;
         burstBulletsLeft = bulletPerBurst;
+
+        bulletsLeft = magazineSize;
     }
 
     void Update()
@@ -54,15 +64,27 @@ public class Weapon : MonoBehaviour
             isShoting = Input.GetKeyDown(KeyCode.Mouse0);
         }   
 
-        if (readyToShoot && isShoting)
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && isReloading == false)
+        {
+            Reload();
+        }
+
+        if (readyToShoot && isShoting && bulletsLeft > 0)
         {
             burstBulletsLeft = bulletPerBurst;
             FireWeapon();
         }  
+
+        if (AmmoManager.Instance.ammoDisplay != null)
+        {
+           AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletPerBurst}/{magazineSize/bulletPerBurst}";
+        }
     }
 
     private void FireWeapon()
     {
+        bulletsLeft--;
+
         muzzleEffect.GetComponent<ParticleSystem>().Play();
 
         readyToShoot = false; 
@@ -96,6 +118,17 @@ public class Weapon : MonoBehaviour
             burstBulletsLeft--;
             Invoke("FireWeapon", shootingDelay);
         }
+    }
+
+    private void Reload()
+    {
+        isReloading = true;
+        Invoke("ReloadCompleted", reloadTime);
+    }
+    private void ReloadCompleted()
+    {
+        bulletsLeft = magazineSize;
+        isReloading = false;
     }
 
     private void ResetShot()
