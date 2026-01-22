@@ -87,6 +87,8 @@ public class Weapon : MonoBehaviour
 
         muzzleEffect.GetComponent<ParticleSystem>().Play();
 
+        SoundManager.Instance.colt1911_shot.Play();
+
         readyToShoot = false; 
 
         Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;

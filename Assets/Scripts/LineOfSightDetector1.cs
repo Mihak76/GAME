@@ -19,15 +19,22 @@ public class LineOfSightDetector : MonoBehaviour
         Vector3 origin = eyePoint.position;
         Vector3 targetPos = target.transform.position + Vector3.up;
         Vector3 direction = targetPos - origin;
-        float distance = direction.magnitude;
+
+        // 👉 omejimo razdaljo z viewDistance
+        float distanceToTarget = direction.magnitude;
+        float maxDistance = Mathf.Min(distanceToTarget, viewDistance);
+
         direction.Normalize();
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit, distance, obstacleMask | targetMask))
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, maxDistance, obstacleMask | targetMask))
         {
             if (showDebug)
             {
-                Debug.DrawLine(origin, hit.point,
-                    hit.collider.gameObject == target ? Color.green : Color.red);
+                Debug.DrawLine(
+                    origin,
+                    hit.point,
+                    hit.collider.gameObject == target ? Color.green : Color.red
+                );
             }
 
             return hit.collider.gameObject == target;
