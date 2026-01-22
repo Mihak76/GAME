@@ -9302,9 +9302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: com.cqf.urpvolumetricfog.runtime::VolumetricAdditionalLight
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &567638769
 GameObject:
   m_ObjectHideFlags: 0
@@ -10145,6 +10142,7 @@ RectTransform:
   - {fileID: 1078272025}
   - {fileID: 1979275299}
   - {fileID: 803188844}
+  - {fileID: 1910301171}
   m_Father: {fileID: 773835863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10355,9 +10353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: com.cqf.urpvolumetricfog.runtime::VolumetricAdditionalLight
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &881119127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14203,19 +14198,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910301170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.37625, y: 1.37625, z: 1.37625}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 557160182}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 839220394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 550.50006, y: 253}
+  m_SizeDelta: {x: 800, y: 367.66574}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910301172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24647,5 +24642,4 @@ SceneRoots:
   - {fileID: 373275373}
   - {fileID: 1361829091}
   - {fileID: 971853981}
-  - {fileID: 1910301171}
   - {fileID: 1704115418}
