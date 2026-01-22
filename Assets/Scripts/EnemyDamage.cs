@@ -1,49 +1,38 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public GameObject player;
-    private float damageRange;
-    public float damageSet = 25f;
-    public float minDamage;
-    public float maxDamage;
+    public PlayerHealth playerHealth;
 
-    public bool randomDamage;
-    public bool setDamage;
+    public float damage = 25f;
+    public float damageInterval = 2f;
 
-    public AudioClip[] sounds;
-    private AudioSource source;
-
-
-    void Start()
-    {
-        damageRange = Random.Range(minDamage, maxDamage);
-        source = player.GetComponent<AudioSource>();
-    }
+    private bool playerInRange = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && randomDamage)
+        if (other.CompareTag("Player"))
         {
-            player.GetComponent<PlayerHealth>().health -= damageRange;
-            source.clip = sounds[Random.Range(0, sounds.Length)];
-            source.Play();
+            playerInRange = true;
+            StartCoroutine(DamageOverTime());
         }
-
-        if (other.gameObject.tag == "Player" && setDamage)
-        {
-            player.GetComponent<PlayerHealth>().health -= damageSet;
-            source.clip = sounds[Random.Range(0, sounds.Length)];
-            source.Play();
-        }
-
     }
 
-
-    void Update()
+    void OnTriggerExit(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+
+    IEnumerator DamageOverTime()
+    {
+        while (playerInRange)
+        {
+            playerHealth.health -= damage;
+            yield return new WaitForSeconds(damageInterval);
+        }
     }
 }

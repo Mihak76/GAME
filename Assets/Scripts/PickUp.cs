@@ -1,45 +1,40 @@
 using UnityEngine;
-using TMPro; // TextMeshPro
+using TMPro;
 
 public class PickUp : MonoBehaviour
 {
-    public GameObject FlashLightOnPlayer; 
-    public TMP_Text PickUpText;  // TextMeshPro
+    public GameObject FlashLightOnPlayer;
+    public TMP_Text PickUpText;
 
     void Start()
     {
         FlashLightOnPlayer.SetActive(false);
+        PickUpText.gameObject.SetActive(false);
+    }
 
-        // Predgeneriramo tekst
-        PickUpText.gameObject.SetActive(true);
-        var color = PickUpText.color;
-        color.a = 0f;
-        PickUpText.color = color;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PickUpText.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
-            var color = PickUpText.color;
-            color.a = 1f;
-            PickUpText.color = color;
-
-            if (Input.GetKey(KeyCode.E))
-            {
-                this.gameObject.SetActive(false);
-                FlashLightOnPlayer.SetActive(true);
-
-                color.a = 0f;
-                PickUpText.color = color;
-            }
+            gameObject.SetActive(false);
+            FlashLightOnPlayer.SetActive(true);
+            PickUpText.gameObject.SetActive(false);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var color = PickUpText.color;
-        color.a = 0f;
-        PickUpText.color = color;
+        if (other.CompareTag("Player"))
+        {
+            PickUpText.gameObject.SetActive(false);
+        }
     }
 }

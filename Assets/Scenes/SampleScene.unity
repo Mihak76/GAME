@@ -931,7 +931,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.9
+  m_Radius: 4.49
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -960,7 +960,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2ef0afc49917ab44095b02150f7da79b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09097097e72be294cbf2f78b00ac3ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangeDetector
-  detectionRadius: 18.19
+  detectionRadius: 19.2
   detectionMask:
     serializedVersion: 2
     m_Bits: 128
@@ -1084,14 +1084,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6041fd96e69d4b64180751d1a40da5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
-  player: {fileID: 773835860}
-  damageSet: 30
-  minDamage: 1
-  maxDamage: 15
-  randomDamage: 0
-  setDamage: 1
-  sounds:
-  - {fileID: 8300000, guid: 8df8815c08ac53e40bd586d5e86bc7c9, type: 3}
+  playerHealth: {fileID: 773835870}
+  damage: 15
+  damageInterval: 2
 --- !u!1 &143288943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,7 +2866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -113}
+  m_AnchoredPosition: {x: 0, y: -204}
   m_SizeDelta: {x: 347, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342029100
@@ -2903,8 +2898,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291743487
+  m_fontColor: {r: 1, g: 0.8066038, b: 0.8066038, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8411,7 +8406,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &490317021
 RectTransform:
@@ -8712,8 +8707,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 1024
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -8773,8 +8768,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 195.2, y: 78.9}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 50, y: 39.4}
+  m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &563487452
 PrefabInstance:
@@ -9302,6 +9297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: com.cqf.urpvolumetricfog.runtime::VolumetricAdditionalLight
+  anisotropy: 0.25
+  scattering: 1
+  radius: 0.2
 --- !u!1 &567638769
 GameObject:
   m_ObjectHideFlags: 0
@@ -10353,6 +10351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: com.cqf.urpvolumetricfog.runtime::VolumetricAdditionalLight
+  anisotropy: 0.25
+  scattering: 1
+  radius: 0.2
 --- !u!1001 &881119127
 PrefabInstance:
   m_ObjectHideFlags: 0
