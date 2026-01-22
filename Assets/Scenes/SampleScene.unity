@@ -2694,8 +2694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e49949fd638ba428d492ff664434bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseLook
+  playerBody: {fileID: 773835863}
   mouseSensitivity: 100
-  playerBody: {fileID: 330585546}
+  smoothTime: 0.03
 --- !u!1 &341959302
 GameObject:
   m_ObjectHideFlags: 0
@@ -8953,7 +8954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f86fbb65901777749b1bcb988d6245b1, type: 3}
       propertyPath: m_Name
-      value: animacije4
+      value: Model
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f86fbb65901777749b1bcb988d6245b1, type: 3}
       propertyPath: m_Layer
@@ -13792,8 +13793,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e49949fd638ba428d492ff664434bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseLook
-  mouseSensitivity: 100
   playerBody: {fileID: 773835863}
+  mouseSensitivity: 100
+  smoothTime: 0.05
 --- !u!1 &1885832769
 GameObject:
   m_ObjectHideFlags: 0

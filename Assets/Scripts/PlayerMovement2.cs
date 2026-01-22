@@ -20,7 +20,7 @@ public class PlayerMovement2 : MonoBehaviour
     public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Animation")]
-    public Animator animator; // Animator na FBX modelu
+    public Animator animator; // Animator na modelu
 
     private Vector3 velocity;
     private bool isGrounded;
@@ -39,13 +39,12 @@ public class PlayerMovement2 : MonoBehaviour
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -2f; // prepreči "tonjenje" playerja
         }
 
         // Get input
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
         Vector3 move = transform.right * x + transform.forward * z;
 
         // Crouch logic
@@ -69,10 +68,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         // Move player
         controller.Move(move * currentSpeed * Time.deltaTime);
-        if (isGrounded && velocity.y < 0)
-{
-    velocity.y = -2f;  // to prepreči, da tone
-}
+
         // Gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
