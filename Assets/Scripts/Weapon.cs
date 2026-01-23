@@ -53,6 +53,12 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+
+        if(bulletsLeft == 0 && isShoting)
+        {
+            SoundManager.Instance.emptymagazine.Play();            
+        }
+
         if (currentShootingMode == ShootingMode.Auto)
         {
             //Holding down left mouse button
@@ -124,6 +130,7 @@ public class Weapon : MonoBehaviour
 
     private void Reload()
     {
+        SoundManager.Instance.reloadingsound.Play();
         isReloading = true;
         Invoke("ReloadCompleted", reloadTime);
     }
