@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision objectWeHit)
 {
-    if (collision.gameObject.CompareTag("Target"))
+    if (objectWeHit.gameObject.CompareTag("Target"))
     {
-        print("hit " + collision.gameObject.name + " !");
+        void CreateBulletImpactEffect(objectWeHit);
+        print("hit " + objectWeHit.gameObject.name + " !");
         Destroy(gameObject);
     }
+}
+
+void CreateBulletImpactEffect(Collision objectWeHit)
+{
+    ContactPoint contact = objectWeHit.contact[0];
+    GameObject hole = Instantiate(
+    GlobalReference.Instance.bulletImpactEffectPrefab,
+    contact.point,
+    Quaternion.LookRotation(contact.normal)
+    );
+   
+
+    hole.transform.SetParent(objectWeHit.gameObject.transform);
 }
 }
