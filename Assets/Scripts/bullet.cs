@@ -5,25 +5,21 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private void OnCollisionEnter(Collision objectWeHit)
-{
-    if (objectWeHit.gameObject.CompareTag("Target"))
     {
-        void CreateBulletImpactEffect(objectWeHit);
-        print("hit " + objectWeHit.gameObject.name + " !");
-        Destroy(gameObject);
+        if (objectWeHit.gameObject.CompareTag("Target"))
+        {
+            CreateBulletImpactEffect(objectWeHit);
+            Debug.Log("hit " + objectWeHit.gameObject.name + "!");
+            Destroy(gameObject);
+        }
     }
-}
 
-void CreateBulletImpactEffect(Collision objectWeHit)
-{
-    ContactPoint contact = objectWeHit.contact[0];
-    GameObject hole = Instantiate(
-    GlobalReference.Instance.bulletImpactEffectPrefab,
-    contact.point,
-    Quaternion.LookRotation(contact.normal)
-    );
-   
+    void CreateBulletImpactEffect(Collision collision)
+    {
+        // Example: just log for now
+        Debug.Log("Bullet impact at " + collision.contacts[0].point);
 
-    hole.transform.SetParent(objectWeHit.gameObject.transform);
-}
+        // Later you could do something like:
+        // Instantiate(impactEffectPrefab, collision.contacts[0].point, Quaternion.identity);
+    }
 }
