@@ -173,7 +173,7 @@ MonoBehaviour:
         m_Parent:
           rid: 769436388576198757
         m_Child:
-          rid: 769436388576198760
+          rid: -2
         Repeat: 1
         AllowMultipleRepeatsPerTick: 0
     - rid: 769436388576198759
@@ -190,20 +190,6 @@ MonoBehaviour:
           rid: 769436388576198761
         Repeat: 1
         AllowMultipleRepeatsPerTick: 0
-    - rid: 769436388576198760
-      type: {class: RangeDetectorAction, ns: , asm: Assembly-CSharp}
-      data:
-        ID:
-          m_Value0: 7968470033079052051
-          m_Value1: 11626636372169886297
-        Graph:
-          rid: 769436371734495232
-        m_Parent:
-          rid: 769436388576198758
-        Detector:
-          rid: 769436386202747545
-        Target:
-          rid: 769436386202747544
     - rid: 769436388576198761
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -280,6 +266,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 769436371734495239
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -341,7 +329,7 @@ MonoBehaviour:
   - rid: 769436386202747035
   - rid: 769436386202747048
   - rid: 769436386202747082
-  m_VersionTimestamp: 639040767650955223
+  m_VersionTimestamp: 639051904463535393
   m_SerializedVersion: 1
   m_DebugInfo: {fileID: 3670782465436597205}
   m_RuntimeGraph: {fileID: -8266437718355241687}
@@ -427,7 +415,7 @@ MonoBehaviour:
           Culture=neutral, PublicKeyToken=null
       Tooltip: 
     NamedChildren: []
-    IsPlaceholder: 0
+    IsPlaceholder: 1
   - Name: Wait (Seconds)
     Story: Wait for [SecondsToWait] seconds
     RuntimeTypeString: Unity.Behavior.WaitAction, Unity.Behavior, Version=0.0.0.0,
@@ -448,9 +436,9 @@ MonoBehaviour:
   m_CommandBuffer:
     m_Commands: []
   m_SubgraphsInfo: []
-  m_BlackboardMissingManagedRef: 0
-  m_GraphMissingManagedRef: 0
-  m_HasMissingTypeInManagedRef: 0
+  m_BlackboardMissingManagedRef: 1
+  m_GraphMissingManagedRef: 1
+  m_HasMissingTypeInManagedRef: 1
   references:
     version: 2
     RefIds:
@@ -926,6 +914,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 769436371734495242
       type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
