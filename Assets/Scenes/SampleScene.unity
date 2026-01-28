@@ -818,9 +818,10 @@ GameObject:
   - component: {fileID: 97000605}
   - component: {fileID: 97000606}
   - component: {fileID: 97000607}
+  - component: {fileID: 97000608}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,6 +1070,19 @@ MonoBehaviour:
   playerHealth: {fileID: 773835870}
   damage: 15
   damageInterval: 2
+--- !u!114 &97000608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97000596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c35b48eefa1e804c976ff9e75a9b59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 5
 --- !u!1001 &141692660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2560,7 +2574,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322483379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -11890,7 +11904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf85e69a3844a844b848506156480d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
-  CurrentHeath: 0
+  CurrentHealth: 0
 --- !u!114 &1076200283
 MonoBehaviour:
   m_ObjectHideFlags: 0

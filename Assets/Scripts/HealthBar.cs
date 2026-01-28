@@ -6,29 +6,24 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     private Image healthBarIM;
-    public float CurrentHeath;
+    public float CurrentHealth;
     private float MaxHealth = 100f;
-    PlayerHealth player;
-
-
-
-
+    private PlayerHealth player;
 
     void Start()
     {
         healthBarIM = GetComponent<Image>();
-        player = FindObjectOfType<PlayerHealth>();
 
+        // Updated line to remove obsolete warning
+        player = Object.FindFirstObjectByType<PlayerHealth>();
     }
-
-
 
     void Update()
     {
-        CurrentHeath = player.health;
-        healthBarIM.fillAmount = CurrentHeath / MaxHealth;
-        
-
-
+        if (player != null) // safety check in case player isn't found
+        {
+            CurrentHealth = player.health;
+            healthBarIM.fillAmount = CurrentHealth / MaxHealth;
+        }
     }
 }

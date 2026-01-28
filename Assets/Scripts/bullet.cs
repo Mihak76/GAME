@@ -4,22 +4,53 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision objectWeHit)
+    public int damage = 10;          // damage, ki ga bullet naredi
+    public float lifeTime = 5f;      // bullet se uniči po 5 sekundah, če ne zadene
+
+    private void Start()
     {
-        if (objectWeHit.gameObject.CompareTag("Target"))
+        Destroy(gameObject, lifeTime);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject hitObject = collision.gameObject;
+
+        // Bullet uniči Target takoj
+        if (hitObject.CompareTag("Target"))
         {
-            CreateBulletImpactEffect(objectWeHit);
-            Debug.Log("hit " + objectWeHit.gameObject.name + "!");
+            CreateBulletImpactEffect(collision);
+            Destroy(gameObject);
+        }
+        // Bullet zadene Enemy
+        else if (hitObject.CompareTag("Enemy"))
+        {
+            CreateBulletImpactEffect(collision);
+
+            // Poišči EnemyHealth na objektu ali v parent
+            EnemyHealth enemyHealth = hitObject.GetComponent<EnemyHealth>();
+            if (enemyHealth == null)
+            {
+                enemyHealth = hitObject.GetComponentInParent<EnemyHealth>();
+            }
+
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+            }
+
+            Destroy(gameObject); // bullet se uniči po enem zadetku
+        }
+        else
+        {
+            // Karkoli drugega (npr. zid)
+            CreateBulletImpactEffect(collision);
             Destroy(gameObject);
         }
     }
 
     void CreateBulletImpactEffect(Collision collision)
     {
-        // Example: just log for now
-        Debug.Log("Bullet impact at " + collision.contacts[0].point);
-
-        // Later you could do something like:
-        // Instantiate(impactEffectPrefab, collision.contacts[0].point, Quaternion.identity);
+        Debug.Log("Bullet impact at " + collision.contacts[0].point + " on " + collision.gameObject.name);
     }
 }
