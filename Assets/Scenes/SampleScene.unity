@@ -843,6 +843,7 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
+  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -873,6 +874,14 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
+    - rid: 769436692659830859
+      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11143587609365671926
+          m_Value1: 314569065423745833
+        Name: New Range Detector
+        m_Value: {fileID: 97000605}
 --- !u!195 &97000598
 NavMeshAgent:
   m_ObjectHideFlags: 0
