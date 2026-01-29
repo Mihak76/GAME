@@ -5,6 +5,11 @@ using TMPro;
 
 public class Weapon : MonoBehaviour
 {
+    
+
+    public GameObject GlockFBX;
+    private bool weaponActive = true;
+
     public Camera playerCamera;
 
     //Shoting
@@ -52,40 +57,41 @@ public class Weapon : MonoBehaviour
     }
 
     void Update()
+{
+    // Če ta GameObject ni aktiven, ne dela nič
+    if (!gameObject.activeSelf)
+        return;
+
+    // če je igra paused
+    if (PauseMenu.GameIsPaused)
+        return;
+
+    // streljanje samo, če je aktiven
+    if (currentShootingMode == ShootingMode.Auto)
     {
-
-        if(bulletsLeft == 0 && isShoting)
-        {
-            SoundManager.Instance.emptymagazine.Play();            
-        }
-
-        if (currentShootingMode == ShootingMode.Auto)
-        {
-            //Holding down left mouse button
-            isShoting = Input.GetKey(KeyCode.Mouse0);
-        }
-        else if (currentShootingMode == ShootingMode.Single ||
-                 currentShootingMode == ShootingMode.Burst)
-        {
-            isShoting = Input.GetKeyDown(KeyCode.Mouse0);
-        }   
-
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && isReloading == false)
-        {
-            Reload();
-        }
-
-        if (readyToShoot && isShoting && bulletsLeft > 0)
-        {
-            burstBulletsLeft = bulletPerBurst;
-            FireWeapon();
-        }  
-
-        if (AmmoManager.Instance.ammoDisplay != null)
-        {
-           AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletPerBurst}/{magazineSize/bulletPerBurst}";
-        }
+        isShoting = Input.GetKey(KeyCode.Mouse0);
     }
+    else if (currentShootingMode == ShootingMode.Single ||
+             currentShootingMode == ShootingMode.Burst)
+    {
+        isShoting = Input.GetKeyDown(KeyCode.Mouse0);
+    }
+
+    if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
+        Reload();
+
+    if (readyToShoot && isShoting && bulletsLeft > 0)
+    {
+        burstBulletsLeft = bulletPerBurst;
+        FireWeapon();
+    }
+
+    if (AmmoManager.Instance.ammoDisplay != null)
+    {
+       AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletPerBurst}/{magazineSize/bulletPerBurst}";
+    }
+}
+
 
     private void FireWeapon()
     {
