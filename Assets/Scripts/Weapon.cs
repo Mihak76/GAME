@@ -37,6 +37,13 @@ public class Weapon : MonoBehaviour
     public int magazineSize, bulletsLeft;
     public bool isReloading;
 
+    public enum WeaponModel
+    {
+        GlockFBX,
+        pistola
+    }
+   
+   public WeaponModel thisWeaponModel;
    
 
 
