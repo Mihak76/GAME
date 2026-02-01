@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09097097e72be294cbf2f78b00ac3ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangeDetector
-  detectionRadius: 19.2
+  detectionRadius: 30.5
   detectionMask:
     serializedVersion: 2
     m_Bits: 128
@@ -4934,6 +4934,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f86fbb65901777749b1bcb988d6245b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1025815814491695847, guid: f86fbb65901777749b1bcb988d6245b1, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -6139,7 +6143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement2
   controller: {fileID: 773835862}
   speed: 13
-  gravity: -0.67
+  gravity: -0.9
   jumpHeight: 1.5
   crouchHeight: 1
   standingHeight: 2
@@ -8135,6 +8139,7 @@ MonoBehaviour:
   magazineSize: 15
   bulletsLeft: 0
   isReloading: 0
+  thisWeaponModel: 0
   currentShootingMode: 0
 --- !u!1 &1055419361
 GameObject:
