@@ -12,6 +12,8 @@ public class Weapon : MonoBehaviour
 
     public Camera playerCamera;
 
+    public bool isActiveWeapon;
+
     //Shoting
     public bool isShoting, readyToShoot;
     bool allowReset = true;
@@ -36,6 +38,10 @@ public class Weapon : MonoBehaviour
     public float reloadTime;
     public int magazineSize, bulletsLeft;
     public bool isReloading;
+
+    public Vector3 spawnPosition;
+    public Vector3 spawnRotation;
+
 
     public enum WeaponModel
     {
@@ -65,37 +71,40 @@ public class Weapon : MonoBehaviour
 
     void Update()
 {
-    // Če ta GameObject ni aktiven, ne dela nič
-    if (!gameObject.activeSelf)
-        return;
-
-    // če je igra paused
-    if (PauseMenu.GameIsPaused)
-        return;
-
-    // streljanje samo, če je aktiven
-    if (currentShootingMode == ShootingMode.Auto)
+    if (isActiveWeapon)
     {
-        isShoting = Input.GetKey(KeyCode.Mouse0);
-    }
-    else if (currentShootingMode == ShootingMode.Single ||
-             currentShootingMode == ShootingMode.Burst)
-    {
-        isShoting = Input.GetKeyDown(KeyCode.Mouse0);
-    }
-
-    if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
-        Reload();
-
-    if (readyToShoot && isShoting && bulletsLeft > 0)
-    {
-        burstBulletsLeft = bulletPerBurst;
-        FireWeapon();
-    }
-
-    if (AmmoManager.Instance.ammoDisplay != null)
-    {
-       AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletPerBurst}/{magazineSize/bulletPerBurst}";
+        // Če ta GameObject ni aktiven, ne dela nič
+        if (!gameObject.activeSelf)
+            return;
+    
+        // če je igra paused
+        if (PauseMenu.GameIsPaused)
+            return;
+    
+        // streljanje samo, če je aktiven
+        if (currentShootingMode == ShootingMode.Auto)
+        {
+            isShoting = Input.GetKey(KeyCode.Mouse0);
+        }
+        else if (currentShootingMode == ShootingMode.Single ||
+                 currentShootingMode == ShootingMode.Burst)
+        {
+            isShoting = Input.GetKeyDown(KeyCode.Mouse0);
+        }
+    
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
+            Reload();
+    
+        if (readyToShoot && isShoting && bulletsLeft > 0)
+        {
+            burstBulletsLeft = bulletPerBurst;
+            FireWeapon();
+        }
+    
+        if (AmmoManager.Instance.ammoDisplay != null)
+        {
+           AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletPerBurst}/{magazineSize/bulletPerBurst}";
+        }
     }
 }
 
