@@ -26,7 +26,7 @@ public class InteractionManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            // HĽADÁ WEAPON AJ NA PARENTOCH (dôležité!)
+            // Check for Weapon component on hit object or its parents
             Weapon weapon = hit.transform.GetComponentInParent<Weapon>();
 
             if (weapon != null)
@@ -41,7 +41,7 @@ public class InteractionManager : MonoBehaviour
             }
         }
 
-        // Keď mierime mimo zbrane alebo na nič
+        // When not looking at a weapon
         ClearOutline();
     }
 
@@ -51,6 +51,13 @@ public class InteractionManager : MonoBehaviour
         if (outline != null)
         {
             outline.enabled = true;
+
+            // Pick up weapon when pressing E
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                WeaponManager.Instance.PickUpWeapon(weapon.gameObject);
+                hoveredWeapon = null; // Clear reference after pickup
+            }
         }
     }
 
