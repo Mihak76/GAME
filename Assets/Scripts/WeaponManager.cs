@@ -5,10 +5,10 @@ public class WeaponManager : MonoBehaviour
     public static WeaponManager Instance { get; private set; }
 
     [Header("Active Weapon Slot")]
-    public Transform weaponSpawn; // ← povlečeš WeaponSpawn iz Hierarchy
+    public Transform weaponSpawn; // WeaponSpawn iz Hierarchy
 
     [Header("Drop Settings")]
-    public KeyCode dropKey = KeyCode.G; // ← nastavljiva tipka za drop
+    public KeyCode dropKey = KeyCode.G; // Nastavljiva tipka za drop
 
     private GameObject currentWeapon;
 
@@ -43,20 +43,21 @@ public class WeaponManager : MonoBehaviour
             DropWeapon();
 
         // Parent weapon na WeaponSpawn in uporabi lokalno pozicijo
-        weaponObject.transform.SetParent(weaponSpawn, false); // ← ključna sprememba
+        weaponObject.transform.SetParent(weaponSpawn, false);
 
-        // Snap to WeaponSpawn (opcijsko, ker SetParent false že naredi lokalno pozicijo)
+        // Snap to WeaponSpawn
         weaponObject.transform.localPosition = Vector3.zero;
         weaponObject.transform.localRotation = Quaternion.identity;
 
         currentWeapon = weaponObject;
 
-        // Disable physics
+        // Disable physics pri pickup-u
         Rigidbody rb = weaponObject.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = true;
             rb.detectCollisions = false;
+            rb.useGravity = false;
         }
 
         Collider col = weaponObject.GetComponent<Collider>();
@@ -75,13 +76,29 @@ public class WeaponManager : MonoBehaviour
     {
         if (currentWeapon == null) return;
 
+        // Odparentaj weapon
         currentWeapon.transform.SetParent(null);
 
         Rigidbody rb = currentWeapon.GetComponent<Rigidbody>();
         if (rb != null)
         {
+            // Omogoči physics in gravitacijo
             rb.isKinematic = false;
             rb.detectCollisions = true;
+            rb.useGravity = true;
+
+            // Dodaj rahlo naključno rotacijo, da weapon pade realistično
+            rb.AddTorque(
+                new Vector3(
+                    Random.Range(-150f, 150f),
+                    Random.Range(-150f, 150f),
+                    Random.Range(-150f, 150f)
+                ),
+                ForceMode.Impulse
+            );
+
+            // Dodaj rahlo silo naprej in navzgor
+            rb.AddForce(currentWeapon.transform.forward * 1f + Vector3.up * 0.5f, ForceMode.Impulse);
         }
 
         Collider col = currentWeapon.GetComponent<Collider>();
