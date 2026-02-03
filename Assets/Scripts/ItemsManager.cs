@@ -1,67 +1,68 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class ItemsManager : MonoBehaviour
 {
-    public List<GameObject> itemsInHands = new List<GameObject>();
-    public int currentIndex = 0;
-    private bool itemHidden = false;
+    public HotbarSlot[] slots;
+    int currentIndex = -1;
+    bool itemHidden = false;
 
     void Start()
     {
-        // Pokaži samo trenutni item
-        ShowCurrentItemOnly();
+        UpdateSelection();
     }
 
     void Update()
     {
-        // Switch items z 1,2,3
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchToItem(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchToItem(1);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchToItem(2);
+        if (Input.GetKeyDown(KeyCode.Alpha1)) SelectSlot(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) SelectSlot(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) SelectSlot(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) SelectSlot(3);
 
-        // Toggle X → skrije/prikaže samo trenutni item
         if (Input.GetKeyDown(KeyCode.X))
         {
             itemHidden = !itemHidden;
-            if (itemHidden)
-                itemsInHands[currentIndex].SetActive(false);
-            else
-                itemsInHands[currentIndex].SetActive(true);
+            UpdateSelection();
         }
     }
 
-    public void PickUpItem(GameObject newItem)
+    public void PickUpItem(GameObject item, Sprite icon)
     {
-        if (!itemsInHands.Contains(newItem))
-            itemsInHands.Add(newItem);
-
-        currentIndex = itemsInHands.IndexOf(newItem);
-
-        if (!itemHidden)
-            ShowCurrentItemOnly();
-    }
-
-    private void SwitchToItem(int index)
-    {
-        if (index >= 0 && index < itemsInHands.Count)
+        for (int i = 0; i < slots.Length; i++)
         {
-            // Skrij prejšnji item
-            itemsInHands[currentIndex].SetActive(false);
+            if (slots[i].item == null)
+            {
+                Debug.Log("Dodajam item v slot " + i + " | Icon: " + icon);
+                    slots[i].SetItem(item, icon);
 
-            currentIndex = index;
-
-            // pokaži samo če toggle ni skrit
-            if (!itemHidden)
-                itemsInHands[currentIndex].SetActive(true);
+                SelectSlot(i);
+                return;
+            }
         }
+
+        Debug.Log("Hotbar je poln!");
     }
 
-    private void ShowCurrentItemOnly()
+void SelectSlot(int index)
+{
+    if (index < 0 || index >= slots.Length) return;
+    if (slots[index].item == null) return;
+
+    currentIndex = index;
+    UpdateSelection();
+}
+
+void UpdateSelection()
+{
+    for (int i = 0; i < slots.Length; i++)
     {
-        for (int i = 0; i < itemsInHands.Count; i++)
-        {
-            itemsInHands[i].SetActive(i == currentIndex && !itemHidden);
-        }
+        bool selected = (i == currentIndex && currentIndex != -1);
+
+
+        slots[i].SetSelected(selected);
+
+        if (slots[i].item != null)
+            slots[i].item.SetActive(selected && !itemHidden);
     }
+}
+
 }

@@ -3,6 +3,8 @@ using TMPro;
 
 public class PickUp : MonoBehaviour
 {
+        public Sprite icon;
+
     public GameObject itemOnPlayer; // Flashlight ali Glock na roki
     public TMP_Text PickUpText;
 
@@ -28,7 +30,12 @@ public class PickUp : MonoBehaviour
             ItemsManager im = other.GetComponentInChildren<ItemsManager>();
 
             // Dodaj **samo model na Playerju**, ne tisti na tleh
-            im.PickUpItem(itemOnPlayer);
+          Debug.Log("Pickup called!");
+ItemData data = itemOnPlayer.GetComponent<ItemData>();
+im.PickUpItem(itemOnPlayer, data.icon);
+
+
+
 
             // skrij model na tleh
             gameObject.SetActive(false);
