@@ -24,25 +24,30 @@ public class InteractionManager : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
 
+        Weapon weapon = null;
+
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            // Check for Weapon component on hit object or its parents
-            Weapon weapon = hit.transform.GetComponentInParent<Weapon>();
+            weapon = hit.transform.GetComponentInParent<Weapon>();
+        }
 
-            if (weapon != null)
+        if (weapon != hoveredWeapon)
+        {
+            ClearOutline();
+            hoveredWeapon = weapon;
+
+            if (hoveredWeapon != null)
             {
-                if (hoveredWeapon != weapon)
-                {
-                    ClearOutline();
-                    hoveredWeapon = weapon;
-                    EnableOutline(hoveredWeapon);
-                }
-                return;
+                EnableOutline(hoveredWeapon);
             }
         }
 
-        // When not looking at a weapon
-        ClearOutline();
+        // PICK UP INPUT
+        if (hoveredWeapon != null && Input.GetKeyDown(KeyCode.E))
+        {
+            WeaponManager.Instance.PickUpWeapon(hoveredWeapon.gameObject);
+            ClearOutline();
+        }
     }
 
     private void EnableOutline(Weapon weapon)
@@ -51,13 +56,6 @@ public class InteractionManager : MonoBehaviour
         if (outline != null)
         {
             outline.enabled = true;
-
-            // Pick up weapon when pressing E
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                WeaponManager.Instance.PickUpWeapon(weapon.gameObject);
-                hoveredWeapon = null; // Clear reference after pickup
-            }
         }
     }
 

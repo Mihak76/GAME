@@ -1,161 +1,128 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class Weapon : MonoBehaviour
 {
-    
-
     public GameObject GlockFBX;
-    private bool weaponActive = true;
+
+    [Header("State")]
+    public bool isActiveWeapon = false;
 
     public Camera playerCamera;
 
-    public bool isActiveWeapon;
+    // Shooting
+    private bool isShoting;
+    private bool readyToShoot = true;
+    public float shootingDelay = 0.2f;
 
-    //Shoting
-    public bool isShoting, readyToShoot;
-    bool allowReset = true;
-    public float shootingDelay = 2f;
-
-    //Burst
+    // Burst
     public int bulletPerBurst = 3;
-    public int burstBulletsLeft;
+    private int burstBulletsLeft;
 
-    //Spread
-    public float spreadIntensity; 
+    // Spread
+    public float spreadIntensity;
 
-    //Bullet 
+    // Bullet
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    public float bulletVelocity = 30f; 
+    public float bulletVelocity = 30f;
     public float bulletPrefabLifeTime = 3f;
 
     public GameObject muzzleEffect;
 
-    //Loading   
-    public float reloadTime;
-    public int magazineSize, bulletsLeft;
-    public bool isReloading;
+    // Reload
+    public float reloadTime = 1.2f;
+    public int magazineSize = 12;
+    private int bulletsLeft;
+    private bool isReloading;
 
+    // Slot data
     public Vector3 spawnPosition;
     public Vector3 spawnRotation;
 
+    public enum WeaponModel { GlockFBX, pistola }
+    public WeaponModel thisWeaponModel;
 
-    public enum WeaponModel
-    {
-        GlockFBX,
-        pistola
-    }
-   
-   public WeaponModel thisWeaponModel;
-   
-
-
-    public enum ShootingMode
-    {
-        Single,
-        Burst,
-        Auto
-    }
+    public enum ShootingMode { Single, Burst, Auto }
     public ShootingMode currentShootingMode;
 
     private void Awake()
     {
-        readyToShoot = true;
-        burstBulletsLeft = bulletPerBurst;
-
         bulletsLeft = magazineSize;
+        burstBulletsLeft = bulletPerBurst;
     }
 
-    void Update()
-{
-    if (isActiveWeapon)
+    private void Update()
     {
-        // Če ta GameObject ni aktiven, ne dela nič
-        if (!gameObject.activeSelf)
+        if (!isActiveWeapon || !gameObject.activeSelf || PauseMenu.GameIsPaused)
             return;
-    
-        // če je igra paused
-        if (PauseMenu.GameIsPaused)
-            return;
-    
-        // streljanje samo, če je aktiven
+
+        // Input
         if (currentShootingMode == ShootingMode.Auto)
-        {
             isShoting = Input.GetKey(KeyCode.Mouse0);
-        }
-        else if (currentShootingMode == ShootingMode.Single ||
-                 currentShootingMode == ShootingMode.Burst)
-        {
+        else
             isShoting = Input.GetKeyDown(KeyCode.Mouse0);
-        }
-    
+
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
             Reload();
-    
-        if (readyToShoot && isShoting && bulletsLeft > 0)
+
+        if (readyToShoot && isShoting && bulletsLeft > 0 && !isReloading)
         {
-            burstBulletsLeft = bulletPerBurst;
+            if (currentShootingMode == ShootingMode.Burst)
+                burstBulletsLeft = bulletPerBurst;
+
             FireWeapon();
         }
-    
-        if (AmmoManager.Instance.ammoDisplay != null)
-        {
-           AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletPerBurst}/{magazineSize/bulletPerBurst}";
-        }
-    }
-}
 
+        // Ammo display
+        if (AmmoManager.Instance != null && AmmoManager.Instance.ammoDisplay != null)
+            AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft}/{magazineSize}";
+    }
 
     private void FireWeapon()
     {
+        if (bulletsLeft <= 0) return;
+
         bulletsLeft--;
 
-        muzzleEffect.GetComponent<ParticleSystem>().Play();
+        if (muzzleEffect != null)
+            muzzleEffect.GetComponent<ParticleSystem>().Play();
 
-        SoundManager.Instance.colt1911_shot.Play();
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.colt1911_shot.Play();
 
-        readyToShoot = false; 
+        readyToShoot = false;
+        Invoke(nameof(ResetShot), shootingDelay);
 
+        // Shoot bullet
         Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+        bullet.transform.forward = shootingDirection;
 
-        // Uporabi rotacijo bulletSpawn
-        GameObject bullet = Instantiate(
-            bulletPrefab,
-            bulletSpawn.position,
-            bulletSpawn.rotation
-        );
-
-        //Pointing the bullet to face the shooting direction
-        bullet.transform.forward = shootingDirection; 
-
-        // Uporabi forward smer metka
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(shootingDirection * bulletVelocity, ForceMode.Impulse);
 
         StartCoroutine(DestroyBulletAfterTime(bullet, bulletPrefabLifeTime));
 
-        if (allowReset)
-        {
-            Invoke("ResetShot", shootingDelay);
-            allowReset = false;
-        }
-
-        if (currentShootingMode == ShootingMode.Burst && burstBulletsLeft > 1)
+        // Burst handling
+        if (currentShootingMode == ShootingMode.Burst)
         {
             burstBulletsLeft--;
-            Invoke("FireWeapon", shootingDelay);
+            if (burstBulletsLeft > 0 && bulletsLeft > 0)
+                Invoke(nameof(FireWeapon), shootingDelay);
         }
     }
 
     private void Reload()
     {
-        SoundManager.Instance.reloadingsound.Play();
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.reloadingsound.Play();
+
         isReloading = true;
-        Invoke("ReloadCompleted", reloadTime);
+        Invoke(nameof(ReloadCompleted), reloadTime);
     }
+
     private void ReloadCompleted()
     {
         bulletsLeft = magazineSize;
@@ -165,29 +132,18 @@ public class Weapon : MonoBehaviour
     private void ResetShot()
     {
         readyToShoot = true;
-        allowReset = true;
     }
 
     public Vector3 CalculateDirectionAndSpread()
     {
-        //Shoting from the middle of the screen to check where are we pointing at 
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
-        {
-            targetPoint = hit.point;
-        }
-        else 
-        {
-            targetPoint = ray.GetPoint(100);
-        }
-
+        Vector3 targetPoint = Physics.Raycast(ray, out hit) ? hit.point : ray.GetPoint(100);
         Vector3 direction = targetPoint - bulletSpawn.position;
 
-        float x = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
-        float y = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
+        float x = Random.Range(-spreadIntensity, spreadIntensity);
+        float y = Random.Range(-spreadIntensity, spreadIntensity);
 
         return direction + new Vector3(x, y, 0);
     }
