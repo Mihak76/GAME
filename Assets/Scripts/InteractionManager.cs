@@ -4,9 +4,10 @@ public class InteractionManager : MonoBehaviour
 {
     public static InteractionManager Instance { get; private set; }
 
-    private Weapon hoveredWeapon;
-
+    [Header("Interaction Settings")]
     [SerializeField] private float interactDistance = 3f;
+
+    private Weapon hoveredWeapon;
 
     private void Awake()
     {
@@ -15,11 +16,19 @@ public class InteractionManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
     }
 
     private void Update()
+    {
+        HandleRaycast();
+        HandlePickup();
+    }
+
+    // ===============================
+    // RAYCAST ZA HOVER
+    // ===============================
+    private void HandleRaycast()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
@@ -37,37 +46,44 @@ public class InteractionManager : MonoBehaviour
             hoveredWeapon = weapon;
 
             if (hoveredWeapon != null)
-            {
                 EnableOutline(hoveredWeapon);
-            }
         }
+    }
 
-        // PICK UP INPUT
+    // ===============================
+    // PICKUP INPUT
+    // ===============================
+    private void HandlePickup()
+    {
         if (hoveredWeapon != null && Input.GetKeyDown(KeyCode.E))
         {
-            WeaponManager.Instance.PickUpWeapon(hoveredWeapon.gameObject);
+            // Pokliči Weapon.PickUp (WeaponManager spawn)
+            hoveredWeapon.PickUp(WeaponManager.Instance.weaponSpawn);
+
             ClearOutline();
         }
     }
 
+    // ===============================
+    // ENABLE OUTLINE
+    // ===============================
     private void EnableOutline(Weapon weapon)
     {
         Outline outline = weapon.GetComponentInChildren<Outline>();
         if (outline != null)
-        {
             outline.enabled = true;
-        }
     }
 
+    // ===============================
+    // CLEAR OUTLINE
+    // ===============================
     private void ClearOutline()
     {
         if (hoveredWeapon == null) return;
 
         Outline outline = hoveredWeapon.GetComponentInChildren<Outline>();
         if (outline != null)
-        {
             outline.enabled = false;
-        }
 
         hoveredWeapon = null;
     }

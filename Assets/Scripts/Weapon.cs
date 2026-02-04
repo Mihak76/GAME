@@ -4,6 +4,9 @@ using TMPro;
 
 public class Weapon : MonoBehaviour
 {
+    [Header("Hotbar Icon")]
+    public Sprite icon; // ikona za hotbar
+
     public GameObject GlockFBX;
 
     [Header("State")]
@@ -152,5 +155,41 @@ public class Weapon : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(bullet);
+    }
+
+    // ===============================
+    // PICKUP LOGIKA (za InteractionManager)
+    // ===============================
+    public void PickUp(Transform weaponHolder)
+    {
+        // Parent na weaponHolder (player)
+        transform.SetParent(weaponHolder, false);
+
+        // Snap na WeaponSpawn
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+
+        // Disable physics
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.detectCollisions = false;
+            rb.useGravity = false;
+        }
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+            col.enabled = false;
+
+        // Skrij weapon dokler ni izbran v hotbaru
+        gameObject.SetActive(false);
+
+        isActiveWeapon = true;
+
+        // Dodaj v ItemsManager / Hotbar
+        ItemsManager itemsManager = FindObjectOfType<ItemsManager>();
+        if (itemsManager != null)
+            itemsManager.PickUpItem(gameObject, icon);
     }
 }

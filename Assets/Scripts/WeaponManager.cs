@@ -4,11 +4,14 @@ public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance { get; private set; }
 
-    [Header("Active Weapon Slot")]
+    [Header("Weapon Spawn")]
     public Transform weaponSpawn; // WeaponSpawn iz Hierarchy
 
     [Header("Drop Settings")]
-    public KeyCode dropKey = KeyCode.G; // Nastavljiva tipka za drop
+    public KeyCode dropKey = KeyCode.G;
+
+    [Header("Hotbar")]
+    public ItemsManager itemsManager; // reference na ItemsManager
 
     private GameObject currentWeapon;
 
@@ -24,7 +27,6 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        // DROP weapon po nastavljivi tipki
         if (currentWeapon != null && Input.GetKeyDown(dropKey))
         {
             DropWeapon();
@@ -34,25 +36,27 @@ public class WeaponManager : MonoBehaviour
     // =======================
     // PICK UP WEAPON
     // =======================
-    public void PickUpWeapon(GameObject weaponObject)
+    public void PickUpWeapon(GameObject weaponPrefab, Sprite icon)
     {
-        if (weaponObject == null) return;
+        if (weaponPrefab == null) return;
 
-        // DROP trenutni weapon, če obstaja
-        if (currentWeapon != null)
-            DropWeapon();
+        // Instanciraj weapon za playerja
+        GameObject weaponInstance = Instantiate(
+            weaponPrefab,
+            weaponSpawn.position,
+            weaponSpawn.rotation,
+            weaponSpawn
+        );
 
-        // Parent weapon na WeaponSpawn in uporabi lokalno pozicijo
-        weaponObject.transform.SetParent(weaponSpawn, false);
+        // Snap na WeaponSpawn
+        weaponInstance.transform.localPosition = Vector3.zero;
+        weaponInstance.transform.localRotation = Quaternion.identity;
 
-        // Snap to WeaponSpawn
-        weaponObject.transform.localPosition = Vector3.zero;
-        weaponObject.transform.localRotation = Quaternion.identity;
+        // Naj bo skrit dokler ni izbran v hotbaru
+        weaponInstance.SetActive(false);
 
-        currentWeapon = weaponObject;
-
-        // Disable physics pri pickup-u
-        Rigidbody rb = weaponObject.GetComponent<Rigidbody>();
+        // Disable physics
+        Rigidbody rb = weaponInstance.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = true;
@@ -60,11 +64,23 @@ public class WeaponManager : MonoBehaviour
             rb.useGravity = false;
         }
 
-        Collider col = weaponObject.GetComponent<Collider>();
+        Collider col = weaponInstance.GetComponent<Collider>();
         if (col != null)
             col.enabled = false;
 
-        Weapon w = weaponObject.GetComponent<Weapon>();
+        // Dodaj v hotbar
+        if (itemsManager != null)
+        {
+            itemsManager.PickUpItem(weaponInstance, icon);
+        }
+        else
+        {
+            Debug.LogWarning("ItemsManager NI nastavljen v WeaponManager!");
+        }
+
+        currentWeapon = weaponInstance;
+
+        Weapon w = weaponInstance.GetComponent<Weapon>();
         if (w != null)
             w.isActiveWeapon = true;
     }
@@ -79,15 +95,14 @@ public class WeaponManager : MonoBehaviour
         // Odparentaj weapon
         currentWeapon.transform.SetParent(null);
 
+        // Enable physics
         Rigidbody rb = currentWeapon.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            // Omogoči physics in gravitacijo
             rb.isKinematic = false;
             rb.detectCollisions = true;
             rb.useGravity = true;
 
-            // Dodaj rahlo naključno rotacijo, da weapon pade realistično
             rb.AddTorque(
                 new Vector3(
                     Random.Range(-150f, 150f),
@@ -97,8 +112,10 @@ public class WeaponManager : MonoBehaviour
                 ForceMode.Impulse
             );
 
-            // Dodaj rahlo silo naprej in navzgor
-            rb.AddForce(currentWeapon.transform.forward * 1f + Vector3.up * 0.5f, ForceMode.Impulse);
+            rb.AddForce(
+                currentWeapon.transform.forward * 1f + Vector3.up * 0.5f,
+                ForceMode.Impulse
+            );
         }
 
         Collider col = currentWeapon.GetComponent<Collider>();
