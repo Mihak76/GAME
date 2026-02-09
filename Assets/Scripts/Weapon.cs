@@ -188,7 +188,7 @@ public class Weapon : MonoBehaviour
         isActiveWeapon = true;
 
         // Dodaj v ItemsManager / Hotbar
-        ItemsManager itemsManager = FindObjectOfType<ItemsManager>();
+        ItemsManager itemsManager = Object.FindAnyObjectByType<ItemsManager>();
         if (itemsManager != null)
             itemsManager.PickUpItem(gameObject, icon);
     }
