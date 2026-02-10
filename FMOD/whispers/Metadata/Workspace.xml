@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Workspace" id="{5d0a9c7a-88ab-4355-8610-034d8b50255d}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../../../../../../GAME_PREDAJA/GAME/FMOD</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{73e9a68b-0fa3-413f-88e8-d0d74fc56814}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{da9fdec0-a70c-4f45-ba9b-97b34f73077e}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{da14db1e-d4ec-4473-80fa-82185a5cb91b}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{68652144-ebfb-40a7-a681-b393bace5072}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{48ac66fb-7eda-4571-bba3-c06c39365ca9}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{4426f296-f647-4edf-be60-e6ab90ee6ad0}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{b2a0da9d-d558-4358-9bff-1467c4af80df}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{cd6097c8-1a69-4ba9-a6c4-e14eca3448ee}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{f91489bd-47f1-4a40-9c8c-9a676d9a175e}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{592f2f54-f92e-46d4-b8e2-986ccca95992}</destination>
+		</relationship>
+	</object>
+</objects>
