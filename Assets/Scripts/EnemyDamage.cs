@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public PlayerHealth playerHealth;
-
     public float damage = 25f;
     public float damageInterval = 2f;
 
     private bool playerInRange = false;
+    private PlayerHealth playerHealth;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            playerHealth = other.GetComponent<PlayerHealth>();
             StartCoroutine(DamageOverTime());
         }
     }
@@ -31,7 +31,11 @@ public class EnemyDamage : MonoBehaviour
     {
         while (playerInRange)
         {
-            playerHealth.health -= damage;
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
+
             yield return new WaitForSeconds(damageInterval);
         }
     }
