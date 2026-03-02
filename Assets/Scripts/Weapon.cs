@@ -6,8 +6,6 @@ public class Weapon : MonoBehaviour
     [Header("Hotbar Icon")]
     public Sprite icon;
 
-    public GameObject GlockFBX;
-
     [Header("State")]
     public bool isActiveWeapon = false;
 
@@ -63,12 +61,6 @@ public class Weapon : MonoBehaviour
 
         if (readyToShoot && isShoting && bulletsLeft > 0 && !isReloading)
         {
-            if (AmmoManager.Instance == null || !AmmoManager.Instance.UseAmmo())
-            {
-                Debug.Log("No ammo!");
-                return;
-            }
-
             if (currentShootingMode == ShootingMode.Burst)
                 burstBulletsLeft = bulletPerBurst;
 
@@ -78,7 +70,8 @@ public class Weapon : MonoBehaviour
 
     private void FireWeapon()
     {
-        if (bulletsLeft <= 0) return;
+        if (bulletsLeft <= 0)
+            return;
 
         bulletsLeft--;
 
