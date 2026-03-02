@@ -6333,7 +6333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452780870}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69753479721c883498fc0f963917eb90, type: 3}
   m_Name: 
@@ -9794,7 +9794,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808422943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69753479721c883498fc0f963917eb90, type: 3}
   m_Name: 
@@ -11252,7 +11252,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956055586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69753479721c883498fc0f963917eb90, type: 3}
   m_Name: 
@@ -12402,7 +12402,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083034373}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69753479721c883498fc0f963917eb90, type: 3}
   m_Name: 
@@ -13936,7 +13936,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324486892}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69753479721c883498fc0f963917eb90, type: 3}
   m_Name: 
@@ -16290,6 +16290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ammoDisplay: {fileID: 557160180}
+  maxReserveAmmo: 120
 --- !u!4 &1704115418
 Transform:
   m_ObjectHideFlags: 0
