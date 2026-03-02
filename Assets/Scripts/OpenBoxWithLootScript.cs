@@ -2,29 +2,32 @@
 
 public class OpenBoxWithLootScript : MonoBehaviour
 {
+    [Header("Box")]
     public Animator boxOB;
-    public GameObject keyOBNeeded;
-    public GameObject openText;
-    public GameObject keyMissingText;
     public AudioSource openSound;
 
-    public GameObject drop1;
-    public GameObject drop2;
-    public GameObject drop3;
-    public GameObject drop4;
-    public GameObject drop5;
-    public GameObject drop6;
+    [Header("Key")]
+    public GameObject keyOBNeeded;
+
+    [Header("UI")]
+    public GameObject openText;
+    public GameObject keyMissingText;
+
+    [Header("Drops (iz Hierarchy)")]
+    public GameObject[] drops;   // Size = 6 → povleci iteme iz Hierarchy
 
     private bool inReach = false;
     private bool isOpen = false;
-    private int randomNumber;
 
     void Start()
     {
-        randomNumber = Random.Range(0, 6); // 0–5 (da lahko pade tudi drop6)
-
         if (openText != null) openText.SetActive(false);
         if (keyMissingText != null) keyMissingText.SetActive(false);
+
+        // Na začetku ugasni vse drop iteme
+        foreach (GameObject d in drops)
+            if (d != null)
+                d.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -52,38 +55,48 @@ public class OpenBoxWithLootScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (keyOBNeeded != null && keyOBNeeded.activeInHierarchy)
-            {
-                keyOBNeeded.SetActive(false);
-
-                if (openSound != null) openSound.Play();
-                if (boxOB != null) boxOB.SetBool("open", true);
-
-                if (openText != null) openText.SetActive(false);
-                if (keyMissingText != null) keyMissingText.SetActive(false);
-
-                SpawnLoot();
-                isOpen = true;
-
-                // izklopi collider, da ne moreš še enkrat
-                Collider col = GetComponent<Collider>();
-                if (col != null) col.enabled = false;
-            }
-            else
+            // Če nimaš ključa
+            if (keyOBNeeded != null && !keyOBNeeded.activeInHierarchy)
             {
                 if (openText != null) openText.SetActive(false);
                 if (keyMissingText != null) keyMissingText.SetActive(true);
+                Debug.Log("[Box] Player nima ključa");
+                return;
             }
+
+            // Odpri box
+            if (boxOB != null) boxOB.SetBool("open", true);
+            if (openSound != null) openSound.Play();
+
+            if (openText != null) openText.SetActive(false);
+            if (keyMissingText != null) keyMissingText.SetActive(false);
+
+            SpawnLoot();
+            isOpen = true;
+
+            // izklopi trigger
+            Collider col = GetComponent<Collider>();
+            if (col != null) col.enabled = false;
         }
     }
 
     void SpawnLoot()
     {
-        if (randomNumber == 0 && drop1 != null) drop1.SetActive(true);
-        else if (randomNumber == 1 && drop2 != null) drop2.SetActive(true);
-        else if (randomNumber == 2 && drop3 != null) drop3.SetActive(true);
-        else if (randomNumber == 3 && drop4 != null) drop4.SetActive(true);
-        else if (randomNumber == 4 && drop5 != null) drop5.SetActive(true);
-        else if (randomNumber == 5 && drop6 != null) drop6.SetActive(true);
+        if (drops == null || drops.Length == 0)
+        {
+            Debug.LogWarning("[BoxLoot] Drops array je prazen!");
+            return;
+        }
+
+        int r = Random.Range(0, drops.Length);
+
+        if (drops[r] == null)
+        {
+            Debug.LogWarning("[BoxLoot] Drop " + r + " je NULL v Inspectorju!");
+            return;
+        }
+
+        drops[r].SetActive(true);
+        Debug.Log("[BoxLoot] Spawned: " + drops[r].name);
     }
 }

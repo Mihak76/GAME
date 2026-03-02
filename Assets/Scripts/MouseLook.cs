@@ -6,6 +6,8 @@ public class SmoothMouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public float smoothTime = 0.05f; // manj = hitreje, več = mehko
 
+    [HideInInspector] public bool allowLook = true;
+
     private float xRotation = 0f;
     private Vector2 currentMouseDelta;
     private Vector2 currentMouseDeltaVelocity;
@@ -17,14 +19,21 @@ public class SmoothMouseLook : MonoBehaviour
 
     void Update()
     {
+        if (!allowLook) return;
+
         // Input miške
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         Vector2 targetMouseDelta = new Vector2(mouseX, mouseY);
 
-        // Smooth rotacija (lerp)
-        currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, smoothTime);
+        // Smooth rotacija
+        currentMouseDelta = Vector2.SmoothDamp(
+            currentMouseDelta,
+            targetMouseDelta,
+            ref currentMouseDeltaVelocity,
+            smoothTime
+        );
 
         // Pitch (gor/dol) za kamero
         xRotation -= currentMouseDelta.y;
@@ -32,6 +41,7 @@ public class SmoothMouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         // Yaw (levo/desno) za player body
-        playerBody.Rotate(Vector3.up * currentMouseDelta.x);
+        if (playerBody != null)
+            playerBody.Rotate(Vector3.up * currentMouseDelta.x);
     }
 }

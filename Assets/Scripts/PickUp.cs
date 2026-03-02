@@ -5,12 +5,15 @@ public class PickUp : MonoBehaviour
 {
     public Sprite icon;
 
-    public GameObject itemOnPlayer;   // Flashlight/Glock model na roki
+    [Header("Player item (model na roki)")]
+    public GameObject itemOnPlayer;
+
+    [Header("UI")]
     public TMP_Text PickUpText;
 
     [Header("Look check")]
-    public Camera playerCamera;       // povleci Main Camera sem (ali pusti prazno)
-    public float pickupDistance = 3f; // max razdalja raycasta
+    public Camera playerCamera;
+    public float pickupDistance = 3f;
 
     void Start()
     {
@@ -22,53 +25,66 @@ public class PickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-            if (PickUpText != null) PickUpText.gameObject.SetActive(true);
+        if (!other.CompareTag("Player")) return;
+        if (PickUpText != null) PickUpText.gameObject.SetActive(true);
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        if (!Input.GetKeyDown(KeyCode.E)) return;
 
-        // Moraš gledat v ta item (raycast iz kamere)
-        if (!IsLookingAtThisItem()) return;
-
-        if (PickUpText != null) PickUpText.gameObject.SetActive(false);
-
-        ItemsManager im = other.GetComponentInChildren<ItemsManager>();
-        if (im != null && itemOnPlayer != null)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Pickup called!");
-            ItemData data = itemOnPlayer.GetComponent<ItemData>();
-            if (data != null)
-                im.PickUpItem(itemOnPlayer, data.icon);
-            else
-                im.PickUpItem(itemOnPlayer, icon); // fallback, če nima ItemData
-        }
+          //  if (!IsLookingAtThisItem())
+           // {
+           //     Debug.Log("Ne gledaš v item (raycast fail).");
+            //    return;
+           // }
 
-        // skrij model na tleh
-        gameObject.SetActive(false);
+            if (itemOnPlayer == null)
+            {
+                Debug.LogWarning($"{name}: itemOnPlayer ni nastavljen v Inspectorju!");
+                return;
+            }
+
+            ItemsManager im = other.GetComponentInChildren<ItemsManager>();
+            if (im == null)
+            {
+                Debug.LogWarning("ItemsManager ni najden na Playerju!");
+                return;
+            }
+
+            if (PickUpText != null) PickUpText.gameObject.SetActive(false);
+
+            // poskusi vzeti ikono iz ItemData, sicer uporabi icon iz PickUp
+            Sprite useIcon = icon;
+            var data = itemOnPlayer.GetComponent<ItemData>();
+            if (data != null && data.icon != null) useIcon = data.icon;
+
+            Debug.Log("Pickup called!");
+            im.PickUpItem(itemOnPlayer, useIcon);
+
+            // skrij world item
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-            if (PickUpText != null) PickUpText.gameObject.SetActive(false);
+        if (!other.CompareTag("Player")) return;
+        if (PickUpText != null) PickUpText.gameObject.SetActive(false);
     }
 
     private bool IsLookingAtThisItem()
     {
-        if (playerCamera == null) return true; // če ni kamere, ne blokiraj
+        if (playerCamera == null) return true;
 
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-
         if (Physics.Raycast(ray, out RaycastHit hit, pickupDistance))
         {
-            // zadeti mora collider od tega itema ali katerega od childov
-            return hit.collider.transform == transform || hit.collider.transform.IsChildOf(transform);
+            // robustno: dela ne glede na parent/child collider setup
+            return hit.collider.GetComponentInParent<PickUp>() == this;
         }
-
         return false;
     }
 }
