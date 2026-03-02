@@ -1,11 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using TMPro;
 
 public class Weapon : MonoBehaviour
 {
     [Header("Hotbar Icon")]
-    public Sprite icon; // ikona za hotbar
+    public Sprite icon;
 
     public GameObject GlockFBX;
 
@@ -40,13 +39,6 @@ public class Weapon : MonoBehaviour
     private int bulletsLeft;
     private bool isReloading;
 
-    // Slot data
-    public Vector3 spawnPosition;
-    public Vector3 spawnRotation;
-
-    public enum WeaponModel { GlockFBX, pistola }
-    public WeaponModel thisWeaponModel;
-
     public enum ShootingMode { Single, Burst, Auto }
     public ShootingMode currentShootingMode;
 
@@ -61,7 +53,6 @@ public class Weapon : MonoBehaviour
         if (!isActiveWeapon || !gameObject.activeSelf || PauseMenu.GameIsPaused)
             return;
 
-        // Input
         if (currentShootingMode == ShootingMode.Auto)
             isShoting = Input.GetKey(KeyCode.Mouse0);
         else
@@ -70,7 +61,6 @@ public class Weapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
             Reload();
 
-        // 🔥 DODANO PREVERJANJE AMMO MANAGERJA
         if (readyToShoot && isShoting && bulletsLeft > 0 && !isReloading)
         {
             if (AmmoManager.Instance == null || !AmmoManager.Instance.UseAmmo())
@@ -84,10 +74,6 @@ public class Weapon : MonoBehaviour
 
             FireWeapon();
         }
-
-        // Ammo display (magazine UI)
-        if (AmmoManager.Instance != null && AmmoManager.Instance.ammoDisplay != null)
-            AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft}/{magazineSize}";
     }
 
     private void FireWeapon()
@@ -105,8 +91,8 @@ public class Weapon : MonoBehaviour
         readyToShoot = false;
         Invoke(nameof(ResetShot), shootingDelay);
 
-        // Shoot bullet
         Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;
+
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         bullet.transform.forward = shootingDirection;
 
@@ -115,10 +101,12 @@ public class Weapon : MonoBehaviour
 
         StartCoroutine(DestroyBulletAfterTime(bullet, bulletPrefabLifeTime));
 
-        // Burst handling
+        UpdateAmmoUI();
+
         if (currentShootingMode == ShootingMode.Burst)
         {
             burstBulletsLeft--;
+
             if (burstBulletsLeft > 0 && bulletsLeft > 0)
                 Invoke(nameof(FireWeapon), shootingDelay);
         }
@@ -135,13 +123,38 @@ public class Weapon : MonoBehaviour
 
     private void ReloadCompleted()
     {
-        bulletsLeft = magazineSize;
+        if (AmmoManager.Instance == null)
+        {
+            isReloading = false;
+            return;
+        }
+
+        int ammoAvailable = AmmoManager.Instance.GetCurrentAmmo();
+        int bulletsNeeded = magazineSize - bulletsLeft;
+
+        int bulletsToLoad = Mathf.Min(bulletsNeeded, ammoAvailable);
+
+        bulletsLeft += bulletsToLoad;
+
+        AmmoManager.Instance.RemoveAmmo(bulletsToLoad);
+
         isReloading = false;
+
+        UpdateAmmoUI();
     }
 
     private void ResetShot()
     {
         readyToShoot = true;
+    }
+
+    void UpdateAmmoUI()
+    {
+        if (AmmoManager.Instance == null || AmmoManager.Instance.ammoDisplay == null)
+            return;
+
+        AmmoManager.Instance.ammoDisplay.text =
+            $"{bulletsLeft} / {AmmoManager.Instance.GetCurrentAmmo()}";
     }
 
     public Vector3 CalculateDirectionAndSpread()
@@ -164,9 +177,6 @@ public class Weapon : MonoBehaviour
         Destroy(bullet);
     }
 
-    // ===============================
-    // PICKUP LOGIKA (za InteractionManager)
-    // ===============================
     public void PickUp(Transform weaponHolder)
     {
         transform.SetParent(weaponHolder, false);
@@ -191,5 +201,7 @@ public class Weapon : MonoBehaviour
         ItemsManager itemsManager = Object.FindAnyObjectByType<ItemsManager>();
         if (itemsManager != null)
             itemsManager.PickUpItem(gameObject, icon);
+
+        UpdateAmmoUI();
     }
 }
