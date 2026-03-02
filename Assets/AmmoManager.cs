@@ -9,7 +9,7 @@ public class AmmoManager : MonoBehaviour
     public TextMeshProUGUI ammoDisplay;
 
     [Header("Settings")]
-    public int maxReserveAmmo = 120; // optional max ammo
+    public int maxReserveAmmo = 120;
 
     private int currentAmmo = 0;
 
@@ -27,7 +27,7 @@ public class AmmoManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateAmmoUI();
+        UpdateAmmoUI(0);
     }
 
     // =============================
@@ -36,6 +36,7 @@ public class AmmoManager : MonoBehaviour
     public void AddAmmo(int amount)
     {
         currentAmmo += amount;
+
         if (currentAmmo > maxReserveAmmo)
             currentAmmo = maxReserveAmmo;
 
@@ -56,6 +57,7 @@ public class AmmoManager : MonoBehaviour
     public void RemoveAmmo(int amount)
     {
         currentAmmo -= amount;
+
         if (currentAmmo < 0)
             currentAmmo = 0;
 
@@ -80,18 +82,13 @@ public class AmmoManager : MonoBehaviour
     // =============================
     // Update UI
     // =============================
-    public void UpdateAmmoUI(int magazineAmmo = -1)
+    public void UpdateAmmoUI(int magazineAmmo = 0)
     {
         if (ammoDisplay == null) return;
 
-        if (magazineAmmo >= 0)
-        {
-            // Prikaz: magazine / reserve
-            ammoDisplay.text = $"{magazineAmmo} / {currentAmmo}";
-        }
-        else
-        {
-            ammoDisplay.text = $"Reserve: {currentAmmo}";
-        }
+        if (magazineAmmo < 0)
+            magazineAmmo = 0;
+
+        ammoDisplay.text = $"{magazineAmmo}/{currentAmmo}";
     }
 }

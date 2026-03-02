@@ -143,11 +143,13 @@ public class Weapon : MonoBehaviour
 
     void UpdateAmmoUI()
     {
-        if (AmmoManager.Instance == null || AmmoManager.Instance.ammoDisplay == null)
-            return;
+     {
+    if (AmmoManager.Instance == null || AmmoManager.Instance.ammoDisplay == null)
+        return;
 
-        AmmoManager.Instance.ammoDisplay.text =
-            $"{bulletsLeft} / {AmmoManager.Instance.GetCurrentAmmo()}";
+    AmmoManager.Instance.ammoDisplay.text =
+        $"{bulletsLeft}/{AmmoManager.Instance.GetCurrentAmmo()}";
+}
     }
 
     public Vector3 CalculateDirectionAndSpread()
