@@ -70,15 +70,22 @@ public class Weapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
             Reload();
 
+        // 🔥 DODANO PREVERJANJE AMMO MANAGERJA
         if (readyToShoot && isShoting && bulletsLeft > 0 && !isReloading)
         {
+            if (AmmoManager.Instance == null || !AmmoManager.Instance.UseAmmo())
+            {
+                Debug.Log("No ammo!");
+                return;
+            }
+
             if (currentShootingMode == ShootingMode.Burst)
                 burstBulletsLeft = bulletPerBurst;
 
             FireWeapon();
         }
 
-        // Ammo display
+        // Ammo display (magazine UI)
         if (AmmoManager.Instance != null && AmmoManager.Instance.ammoDisplay != null)
             AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft}/{magazineSize}";
     }
@@ -162,14 +169,10 @@ public class Weapon : MonoBehaviour
     // ===============================
     public void PickUp(Transform weaponHolder)
     {
-        // Parent na weaponHolder (player)
         transform.SetParent(weaponHolder, false);
-
-        // Snap na WeaponSpawn
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
 
-        // Disable physics
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -182,12 +185,9 @@ public class Weapon : MonoBehaviour
         if (col != null)
             col.enabled = false;
 
-        // Skrij weapon dokler ni izbran v hotbaru
         gameObject.SetActive(false);
-
         isActiveWeapon = true;
 
-        // Dodaj v ItemsManager / Hotbar
         ItemsManager itemsManager = Object.FindAnyObjectByType<ItemsManager>();
         if (itemsManager != null)
             itemsManager.PickUpItem(gameObject, icon);
