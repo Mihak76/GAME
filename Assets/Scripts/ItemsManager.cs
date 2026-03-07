@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class ItemsManager : MonoBehaviour
 {
+    [Header("Hotbar movement")]
+    public RectTransform hotbarPanel;
+    public RectTransform hotbarClosedAnchor;
+    public RectTransform hotbarOpenAnchor;
     [Header("Disable when inventory open (povleci SEM vse skripte, ki premikajo/obračajo)")]
     public MonoBehaviour[] disableWhenInventoryOpen;
 
@@ -20,6 +24,7 @@ public class ItemsManager : MonoBehaviour
 
     void Start()
     {
+        MoveHotbarTo(hotbarClosedAnchor);
         if (inventoryPanel != null)
             inventoryPanel.SetActive(false);
 
@@ -51,32 +56,35 @@ public class ItemsManager : MonoBehaviour
         }
     }
 
-    void ToggleInventory()
+void ToggleInventory()
+{
+    inventoryOpen = !inventoryOpen;
+    Debug.Log("Inventory open = " + inventoryOpen);
+    if (inventoryPanel != null)
+        inventoryPanel.SetActive(inventoryOpen);
+
+    Cursor.visible = inventoryOpen;
+    Cursor.lockState = inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
+
+    Input.ResetInputAxes();
+
+    if (disableWhenInventoryOpen != null)
     {
-        inventoryOpen = !inventoryOpen;
-
-        if (inventoryPanel != null)
-            inventoryPanel.SetActive(inventoryOpen);
-
-        Cursor.visible = inventoryOpen;
-        Cursor.lockState = inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
-
-        // Zelo pomembno: reset mouse delta, da ne "odnese" igralca
-        Input.ResetInputAxes();
-
-        // Izklopi vse skripte, ki obračajo / premikajo igralca
-        if (disableWhenInventoryOpen != null)
+        for (int i = 0; i < disableWhenInventoryOpen.Length; i++)
         {
-            for (int i = 0; i < disableWhenInventoryOpen.Length; i++)
-            {
-                if (disableWhenInventoryOpen[i] != null)
-                    disableWhenInventoryOpen[i].enabled = !inventoryOpen;
-            }
+            if (disableWhenInventoryOpen[i] != null)
+                disableWhenInventoryOpen[i].enabled = !inventoryOpen;
         }
-
-        if (inventoryOpen) HideAllHeldItems();
-        else RefreshHeldItemVisibility();
     }
+
+    if (inventoryOpen)
+        MoveHotbarTo(hotbarOpenAnchor);
+    else
+        MoveHotbarTo(hotbarClosedAnchor);
+
+    if (inventoryOpen) HideAllHeldItems();
+    else RefreshHeldItemVisibility();
+}
 
     public void PickUpItem(GameObject itemOnPlayer, Sprite icon)
     {
@@ -152,4 +160,20 @@ public class ItemsManager : MonoBehaviour
         if (currentIndex != -1 && !itemHidden && !hotbarSlots[currentIndex].IsEmpty)
             hotbarSlots[currentIndex].item.SetActive(true);
     }
+    void MoveHotbarTo(RectTransform targetAnchor)
+{
+    if (hotbarPanel == null || targetAnchor == null)
+    {
+        Debug.Log("MoveHotbarTo FAIL: manjka referenca");
+        return;
+    }
+
+    Debug.Log("Premikam hotbar na: " + targetAnchor.name);
+
+    hotbarPanel.SetParent(targetAnchor, false);
+    hotbarPanel.anchoredPosition = Vector2.zero;
+    hotbarPanel.localRotation = Quaternion.identity;
+    hotbarPanel.localScale = Vector3.one;
+}
+
 }
