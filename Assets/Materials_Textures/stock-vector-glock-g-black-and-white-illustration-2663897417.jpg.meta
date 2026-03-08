@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 682ee28078e3a874392927d3abdeaf2f
+guid: 6dff5148ae0b06249a3dca779c7a6768
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,11 +49,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 512}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,36 +96,12 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline:
-    - - {x: 290, y: 185}
-      - {x: 248, y: 196}
-      - {x: 212, y: 196}
-      - {x: 211, y: 195}
-      - {x: 154, y: 196}
-      - {x: -163, y: 196}
-      - {x: -174, y: 194}
-      - {x: -179, y: 177}
-      - {x: -178, y: 170}
-      - {x: -353, y: 166}
-      - {x: -372, y: 156}
-      - {x: -372, y: 43}
-      - {x: -360, y: -117}
-      - {x: -296, y: -140}
-      - {x: 290, y: -140}
-    - - {x: 338, y: -252}
-      - {x: 338, y: -152}
-      - {x: -300, y: -152}
-      - {x: -300, y: -256}
-      - {x: 335, y: -256}
+    outline: []
     customData: 
-    physicsShape:
-    - - {x: -370, y: -129}
-      - {x: 313, y: -135}
-      - {x: 301, y: 190}
-      - {x: -370, y: 168}
+    physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
