@@ -416,7 +416,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -447,14 +446,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 2223577}
 --- !u!136 &2223580
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4766,7 +4757,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -4797,14 +4787,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 97000605}
 --- !u!136 &97000599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6038,7 +6020,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -6069,14 +6050,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 115112038}
 --- !u!136 &115112041
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7160,7 +7133,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -7191,14 +7163,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 135345752}
 --- !u!136 &135345755
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15819,7 +15783,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322483379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -33161,7 +33125,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -33192,14 +33155,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 560788204}
 --- !u!136 &560788207
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34826,7 +34781,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -34857,14 +34811,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 575908591}
 --- !u!136 &575908594
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -40552,7 +40498,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -40583,14 +40528,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 692743362}
 --- !u!136 &692743365
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -44397,7 +44334,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -44428,14 +44364,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 756633391}
 --- !u!136 &756633394
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -72651,7 +72579,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -72682,14 +72609,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 1260869755}
 --- !u!136 &1260869758
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -74794,7 +74713,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -74825,14 +74743,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 1319432058}
 --- !u!136 &1319432061
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -95213,7 +95123,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -95244,14 +95153,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 1698209406}
 --- !u!136 &1698209409
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -117883,7 +117784,6 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 769436692659830859
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -117914,14 +117814,6 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 769436692659830859
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11143587609365671926
-          m_Value1: 314569065423745833
-        Name: New Range Detector
-        m_Value: {fileID: 2063015143}
 --- !u!136 &2063015146
 CapsuleCollider:
   m_ObjectHideFlags: 0
