@@ -176,5 +176,28 @@ void ToggleInventory()
     hotbarPanel.localScale = Vector3.one;
 }
 // Doda to metodo v ItemsManager, da ItemUsage ve, kateri slot je izbran
+public void RemoveItem(GameObject itemToRemove)
+{
+    // preveri hotbar
+    for (int i = 0; i < hotbarSlots.Length; i++)
+    {
+        if (!hotbarSlots[i].IsEmpty && hotbarSlots[i].item == itemToRemove)
+        {
+            hotbarSlots[i].ClearSlot();
+            RefreshHeldItemVisibility();
+            return;
+        }
+    }
 
+    // preveri inventory grid
+    for (int i = 0; i < inventorySlots.Length; i++)
+    {
+        if (!inventorySlots[i].IsEmpty && inventorySlots[i].item == itemToRemove)
+        {
+            inventorySlots[i].ClearSlot();
+            RefreshHeldItemVisibility();
+            return;
+        }
+    }
+}
 }

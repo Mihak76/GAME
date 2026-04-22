@@ -52,4 +52,11 @@ public class HotbarSlot : MonoBehaviour
     {
         transform.localScale = selected ? selectedScale : normalScale;
     }
+    public void ClearSlot()
+{
+    item = null;
+    icon.enabled = false;
+    icon.sprite = null;
+    SetSelected(false);
+}
 }
