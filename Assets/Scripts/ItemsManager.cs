@@ -175,5 +175,6 @@ void ToggleInventory()
     hotbarPanel.localRotation = Quaternion.identity;
     hotbarPanel.localScale = Vector3.one;
 }
+// Doda to metodo v ItemsManager, da ItemUsage ve, kateri slot je izbran
 
 }

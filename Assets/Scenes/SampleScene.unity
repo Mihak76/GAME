@@ -441,8 +441,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048481
-  - rid: 6387420853164048482
+  - rid: 6387420891744829540
+  - rid: 6387420891744829541
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048481
+    - rid: 6387420891744829540
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -481,7 +481,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 2223577}
-    - rid: 6387420853164048482
+    - rid: 6387420891744829541
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -10827,8 +10827,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048466
-  - rid: 6387420853164048467
+  - rid: 6387420891744829524
+  - rid: 6387420891744829525
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -10859,15 +10859,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048466
-      type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 8544697767125085001
-          m_Value1: 13091046981266254447
-        Name: New Line Of Sight Detector
-        m_Value: {fileID: 97000612}
-    - rid: 6387420853164048467
+    - rid: 6387420891744829524
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -10875,6 +10867,14 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 97000605}
+    - rid: 6387420891744829525
+      type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8544697767125085001
+          m_Value1: 13091046981266254447
+        Name: New Line Of Sight Detector
+        m_Value: {fileID: 97000612}
 --- !u!136 &97000599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13553,8 +13553,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048475
-  - rid: 6387420853164048476
+  - rid: 6387420891744829534
+  - rid: 6387420891744829535
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -13585,7 +13585,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048475
+    - rid: 6387420891744829534
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -13593,7 +13593,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 115112038}
-    - rid: 6387420853164048476
+    - rid: 6387420891744829535
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -15482,8 +15482,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048468
-  - rid: 6387420853164048469
+  - rid: 6387420891744829526
+  - rid: 6387420891744829527
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -15514,7 +15514,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048468
+    - rid: 6387420891744829526
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -15522,7 +15522,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 135345752}
-    - rid: 6387420853164048469
+    - rid: 6387420891744829527
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -16977,6 +16977,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4486c999f6e881349afbaa8cc2690b7a, type: 3}
   m_PrefabInstance: {fileID: 150645121}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &154076179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+  m_PrefabInstance: {fileID: 283621713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &154076180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154076179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81d38ed1da2f5041b3b25e292a641d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthPickUp
+  pickUpOB: {fileID: 154076179}
+  player: {fileID: 773835860}
+  pickUpText: {fileID: 342029098}
+  cannotPickUpText: {fileID: 341959302}
+  addHealth: 50
+  healthPickUpSound: {fileID: 94194952}
+  screenFX: {fileID: 1886975469}
+--- !u!54 &154076181
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154076179}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &154076182
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154076179}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.12, y: 0.32, z: 0.24}
+  m_Center: {x: 0, y: 0.005064028, z: 0}
 --- !u!1001 &154261473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27841,6 +27913,84 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc8ec91f9ed53ab4b8302d063cc89ae6, type: 3}
   m_PrefabInstance: {fileID: 283575781}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &283621713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 22.437986
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 22.437986
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 22.437986
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 53.38
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.42
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 543.34
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.5920551
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.80589753
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 252.606
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      propertyPath: m_Name
+      value: MedkitFBX (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 154076182}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 154076181}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 154076180}
+  m_SourcePrefab: {fileID: 100100000, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
 --- !u!4 &284633230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0a9ad2b5edd0c6d49bc3aebe133e3850, type: 3}
@@ -29779,25 +29929,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
   m_PrefabInstance: {fileID: 1623768181}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &305703738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305703737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81d38ed1da2f5041b3b25e292a641d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthPickUp
-  pickUpOB: {fileID: 305703737}
-  player: {fileID: 773835860}
-  pickUpText: {fileID: 342029098}
-  cannotPickUpText: {fileID: 341959302}
-  addHealth: 50
-  healthPickUpSound: {fileID: 94194952}
-  screenFX: {fileID: 1886975469}
 --- !u!65 &305703739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29846,6 +29977,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &305703744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305703737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81d38ed1da2f5041b3b25e292a641d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthPickUp
+  pickUpOB: {fileID: 305703737}
+  player: {fileID: 773835860}
+  pickUpText: {fileID: 342029098}
+  cannotPickUpText: {fileID: 341959302}
+  addHealth: 50
+  healthPickUpSound: {fileID: 94194952}
+  screenFX: {fileID: 1886975469}
 --- !u!1001 &305949327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31141,7 +31291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322483379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -58040,8 +58190,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048479
-  - rid: 6387420853164048480
+  - rid: 6387420891744829538
+  - rid: 6387420891744829539
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -58072,7 +58222,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048479
+    - rid: 6387420891744829538
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -58080,7 +58230,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 560788204}
-    - rid: 6387420853164048480
+    - rid: 6387420891744829539
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -60252,8 +60402,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048477
-  - rid: 6387420853164048478
+  - rid: 6387420891744829536
+  - rid: 6387420891744829537
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -60284,7 +60434,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048477
+    - rid: 6387420891744829536
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -60292,7 +60442,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 575908591}
-    - rid: 6387420853164048478
+    - rid: 6387420891744829537
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -71773,8 +71923,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048472
-  - rid: 6387420853164048473
+  - rid: 6387420891744829530
+  - rid: 6387420891744829531
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -71805,7 +71955,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048472
+    - rid: 6387420891744829530
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -71813,7 +71963,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 692743362}
-    - rid: 6387420853164048473
+    - rid: 6387420891744829531
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -78782,8 +78932,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048487
-  - rid: 6387420853164048488
+  - rid: 6387420891744829546
+  - rid: 6387420891744829547
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -78814,7 +78964,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048487
+    - rid: 6387420891744829546
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -78822,7 +78972,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 756633391}
-    - rid: 6387420853164048488
+    - rid: 6387420891744829547
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -130322,8 +130472,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048465
-  - rid: 6387420853164048474
+  - rid: 6387420891744829532
+  - rid: 6387420891744829533
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -130354,7 +130504,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048465
+    - rid: 6387420891744829532
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -130362,7 +130512,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 1260869755}
-    - rid: 6387420853164048474
+    - rid: 6387420891744829533
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -135136,8 +135286,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048485
-  - rid: 6387420853164048486
+  - rid: 6387420891744829544
+  - rid: 6387420891744829545
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -135168,7 +135318,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048485
+    - rid: 6387420891744829544
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -135176,7 +135326,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 1319432058}
-    - rid: 6387420853164048486
+    - rid: 6387420891744829545
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -161622,10 +161772,10 @@ PrefabInstance:
       addedObject: {fileID: 305703739}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 305703738}
+      addedObject: {fileID: 305703743}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 305703743}
+      addedObject: {fileID: 305703744}
   m_SourcePrefab: {fileID: 100100000, guid: e3783878d5dddc44da9d327bdf37e0d3, type: 3}
 --- !u!1001 &1624117277
 PrefabInstance:
@@ -173818,8 +173968,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048470
-  - rid: 6387420853164048471
+  - rid: 6387420891744829528
+  - rid: 6387420891744829529
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -173850,7 +174000,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048470
+    - rid: 6387420891744829528
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -173858,7 +174008,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 1698209406}
-    - rid: 6387420853164048471
+    - rid: 6387420891744829529
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -212390,8 +212540,8 @@ MonoBehaviour:
   - rid: 769436368552067330
   - rid: 769436371734495365
   - rid: 769436386202747561
-  - rid: 6387420853164048483
-  - rid: 6387420853164048484
+  - rid: 6387420891744829542
+  - rid: 6387420891744829543
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -212422,7 +212572,7 @@ MonoBehaviour:
           m_Value1: 12765636398303541408
         Name: TargetDetected
         m_Value: 0
-    - rid: 6387420853164048483
+    - rid: 6387420891744829542
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -212430,7 +212580,7 @@ MonoBehaviour:
           m_Value1: 314569065423745833
         Name: New Range Detector
         m_Value: {fileID: 2063015143}
-    - rid: 6387420853164048484
+    - rid: 6387420891744829543
       type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -221501,6 +221651,7 @@ SceneRoots:
   - {fileID: 1319432065}
   - {fileID: 756633398}
   - {fileID: 1623768181}
+  - {fileID: 283621713}
   - {fileID: 2088900959}
   - {fileID: 1361829091}
   - {fileID: 1053639588}
