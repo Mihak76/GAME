@@ -14,11 +14,15 @@ public class NotePickup : MonoBehaviour
         }
     }
 
-    void CollectNote()
-    {
-        NoteManager.Instance.AddNote(noteText);
-        gameObject.SetActive(false);
-    }
+   void CollectNote()
+{
+    NoteManager.Instance.AddNote(noteText);
+
+    // pokaži fullscreen note
+    NoteUIManager.Instance.ShowNote(noteText);
+
+    gameObject.SetActive(false);
+}
 
     private void OnTriggerEnter(Collider other)
     {
