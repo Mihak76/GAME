@@ -53,7 +53,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.049778, y: 3.0593224, z: 2.2264404}
+  m_Size: {x: 5, y: 20, z: 4}
   m_Center: {x: -0.84539986, y: 1.0296612, z: 1.0516357}
 --- !u!114 &5092435615621221757
 MonoBehaviour:
@@ -67,12 +67,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b29c8cd1f3f15840bf273e3a8034c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotePickup
-  noteText: "Audio Log \u2013 Unfinished  I set up a recorder tonight to prove I
-    wasn\u2019t imagining the sounds.  At 2:11 AM the device picked up movement outside
-    the cabin. At 2:14 AM the microphone registered whispering.  I replayed the tape
-    three times before I realized something was wrong.  The voice wasn\u2019t outside. 
-    It was inside the cabin.  Behind me.  The recording ends with the door opening. 
-    I don\u2019t remember opening the door."
+  noteText: "Audio Log \u2013 Unfinished\n\nI set up a recorder tonight to prove
+    I wasn\u2019t imagining the sounds.\n\nAt 2:11 AM the device picked up movement
+    outside the cabin.\nAt 2:14 AM the microphone registered whispering.\n\nI replayed
+    the tape three times before I realized something was wrong.\n\nThe voice wasn\u2019t
+    outside.\n\nIt was inside the cabin.\n\nBehind me.\n\nThe recording ends with
+    the door opening.\n\nI don\u2019t remember opening the door."
 --- !u!1 &5111240729464895161
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,7 +53,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.049778, y: 3.0593224, z: 2.2264404}
+  m_Size: {x: 5, y: 20, z: 4}
   m_Center: {x: -0.84539986, y: 1.0296612, z: 1.0516357}
 --- !u!114 &5092435615621221757
 MonoBehaviour:
@@ -67,13 +67,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b29c8cd1f3f15840bf273e3a8034c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotePickup
-  noteText: "Location Log \u2013 Abandoned Site  I wasn\u2019t supposed to come here
-    alone.  The locals refuse to talk about this forest. They avoid the road entirely
-    after sunset. At first I thought it was superstition, the usual rural paranoia\u2026
-    but the silence here feels deliberate. Like the place itself is being ignored. 
-    The ground around the clearing is disturbed. Not recently \u2014 but repeatedly.
-    Something has been here many times.  I found the first sign today: a child\u2019s
-    shoe, half buried in the mud.  Too small to belong to a hiker."
+  noteText: "Location Log \u2013 Abandoned Site\n\nI wasn\u2019t supposed to come
+    here alone. \n\nThe locals refuse to talk about this forest. They avoid the road
+    entirely after sunset. \nAt first I thought it was superstition, the usual rural
+    paranoia\u2026 but the silence here feels deliberate. Like the place itself is
+    being ignored. \n \nThe ground around the clearing is disturbed. Not recently
+    \u2014 but repeatedly. Something has been here many times.  \nI found the first
+    sign today: a child\u2019s shoe, half buried in the mud.  \n\nToo small to belong
+    to a hiker."
 --- !u!1 &5111240729464895161
 GameObject:
   m_ObjectHideFlags: 0

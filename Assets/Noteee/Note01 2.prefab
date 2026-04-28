@@ -53,7 +53,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.049778, y: 3.0593224, z: 2.2264404}
+  m_Size: {x: 5, y: 20, z: 4}
   m_Center: {x: -0.84539986, y: 1.0296612, z: 1.0516357}
 --- !u!114 &5092435615621221757
 MonoBehaviour:
@@ -67,10 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b29c8cd1f3f15840bf273e3a8034c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotePickup
-  noteText: "First Night in the Cabin  I woke up at 3:17 AM to the sound of footsteps
-    outside the cabin.  Slow. Careful. Circling.  I checked the perimeter \u2014
-    nothing. No footprints. No animals. No wind.  But the dirt around the cabin had
-    been disturbed again.  Like someone stood there\u2026 for hours.  Watching."
+  noteText: "First Night in the Cabin\n\nI woke up at 3:17 AM to the sound of footsteps
+    outside the cabin.\n\nSlow. Careful. Circling.\n\nI checked the perimeter \u2014
+    nothing. No footprints. No animals. No wind.\n\nBut the dirt around the cabin
+    had been disturbed again.\n\nLike someone stood there\u2026 for hours.\n\nWatching."
 --- !u!1 &5111240729464895161
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,7 +53,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.049778, y: 3.0593224, z: 2.2264404}
+  m_Size: {x: 5, y: 20, z: 4}
   m_Center: {x: -0.84539986, y: 1.0296612, z: 1.0516357}
 --- !u!114 &5092435615621221757
 MonoBehaviour:
@@ -67,10 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b29c8cd1f3f15840bf273e3a8034c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotePickup
-  noteText: "Realization  I think the notes were left intentionally.  Not hidden
-    \u2014 scattered.  Like breadcrumbs.  Like someone wanted the next person to
-    follow the same path.  To see the same things.  To reach the same conclusion. 
-    This isn\u2019t evidence.  It\u2019s a trail."
+  noteText: "Realization\n\nI think the notes were left intentionally.\n\nNot hidden
+    \u2014 scattered.\n\nLike breadcrumbs.\n\nLike someone wanted the next person
+    to follow the same path.\n\nTo see the same things.\n\nTo reach the same conclusion.\n\nThis
+    isn\u2019t evidence.\n\nIt\u2019s a trail."
 --- !u!1 &5111240729464895161
 GameObject:
   m_ObjectHideFlags: 0

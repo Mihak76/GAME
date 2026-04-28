@@ -53,7 +53,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.049778, y: 3.0593224, z: 2.2264404}
+  m_Size: {x: 5, y: 20, z: 4}
   m_Center: {x: -0.84539986, y: 1.0296612, z: 1.0516357}
 --- !u!114 &5092435615621221757
 MonoBehaviour:
@@ -67,10 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b29c8cd1f3f15840bf273e3a8034c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotePickup
-  noteText: "The Truth  This place doesn\u2019t create disappearances.  It collects
-    them.  People are drawn here \u2014 investigators, search parties, curious locals. 
-    We come looking for answers.  And then we become part of the pattern.  Part of
-    the map."
+  noteText: "The Truth\n\nThis place doesn\u2019t create disappearances.\n\nIt collects
+    them.\n\nPeople are drawn here \u2014 investigators, search parties, curious
+    locals.\n\nWe come looking for answers.\n\nAnd then we become part of the pattern.\n\nPart
+    of the map."
 --- !u!1 &5111240729464895161
 GameObject:
   m_ObjectHideFlags: 0

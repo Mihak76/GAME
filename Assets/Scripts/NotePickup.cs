@@ -4,6 +4,7 @@ public class NotePickup : MonoBehaviour
 {
     private bool playerInRange = false;
 
+    [TextArea(5, 15)]
     public string noteText;
 
     void Update()
@@ -14,15 +15,12 @@ public class NotePickup : MonoBehaviour
         }
     }
 
-   void CollectNote()
-{
-    NoteManager.Instance.AddNote(noteText);
-
-    // pokaži fullscreen note
-    NoteUIManager.Instance.ShowNote(noteText);
-
-    gameObject.SetActive(false);
-}
+    void CollectNote()
+    {
+        NoteManager.Instance.AddNote(noteText);
+        NoteUIManager.Instance.ShowNote(noteText);
+        gameObject.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {

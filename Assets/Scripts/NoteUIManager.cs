@@ -12,13 +12,23 @@ public class NoteUIManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
-        notePanel.SetActive(false); // panel je vedno skrit ob startu
+
+        if (notePanel != null)
+            notePanel.SetActive(false);
     }
 
     void Update()
     {
-        if (noteOpen && Input.GetKeyDown(KeyCode.E))
+        if (!noteOpen) return;
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
             CloseNote();
         }
@@ -29,13 +39,21 @@ public class NoteUIManager : MonoBehaviour
         notePanel.SetActive(true);
         noteTextUI.text = text;
         noteOpen = true;
-        Time.timeScale = 0f;
+
+        // IMPORTANT: reset input buffer (fix "stuck E" bug)
+        Input.ResetInputAxes();
     }
 
     void CloseNote()
     {
         notePanel.SetActive(false);
         noteOpen = false;
-        Time.timeScale = 1f;
+
+        Input.ResetInputAxes();
+    }
+
+    public bool IsOpen()
+    {
+        return noteOpen;
     }
 }
