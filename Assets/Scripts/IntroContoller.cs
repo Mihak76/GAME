@@ -1,25 +1,27 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class IntroController : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public GameObject skipTextUI; // "Press SPACE to skip"
+    public GameObject skipTextUI;
+    public GameObject introPanel;
 
-    [TextArea(5,10)]
-    public string introText;
+    public CanvasGroup fadeScreen;
+    public float fadeSpeed = 2f;
 
-    public float typingSpeed = 0.05f;
+    [TextArea(3, 10)]
+    public string[] introParts;
 
-    private bool isTyping = true;
+    public float typingSpeed = 0.04f;
+
     private bool skipRequested = false;
 
     void Start()
     {
         skipTextUI.SetActive(false);
-        StartCoroutine(TypeIntro());
+        StartCoroutine(PlayIntro());
     }
 
     void Update()
@@ -30,42 +32,71 @@ public class IntroController : MonoBehaviour
         }
     }
 
-    IEnumerator TypeIntro()
+    IEnumerator PlayIntro()
     {
-        textComponent.text = "";
-
-        foreach (char letter in introText)
+        foreach (string part in introParts)
         {
-            if (skipRequested)
-            {
-                textComponent.text = introText;
-                break;
-            }
+            yield return StartCoroutine(TypeText(part));
 
-            textComponent.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSeconds(1.2f);
+
+            if (skipRequested)
+                break;
         }
 
-        isTyping = false;
         skipTextUI.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
-
-        // počakaj na SPACE ali avtomatski continue
         while (!Input.GetKeyDown(KeyCode.Space))
         {
             yield return null;
         }
 
-        EndIntro();
+        yield return StartCoroutine(EndIntro());
     }
 
-    void EndIntro()
+    IEnumerator TypeText(string text)
     {
-        gameObject.SetActive(false);
+        textComponent.text = "";
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            if (skipRequested)
+            {
+                textComponent.text = text;
+                yield break;
+            }
+
+            textComponent.text += text[i];
+
+            float delay = typingSpeed;
+
+            if (text[i] == '.')
+                delay = typingSpeed * 5f;
+            else if (text[i] == ',')
+                delay = typingSpeed * 3f;
+            else if (text[i] == '…')
+                delay = typingSpeed * 7f;
+
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    IEnumerator EndIntro()
+    {
         skipTextUI.SetActive(false);
 
-        // TU kasneje daš spawn logic ali loading v game
-        Debug.Log("Intro finished → start game here");
+        // 🔥 FADE TO BLACK
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * fadeSpeed;
+            fadeScreen.alpha = t;
+            yield return null;
+        }
+
+        // 🔥 TU GREŠ V GAME (spawn, scene load, itd.)
+        introPanel.SetActive(false);
+
+        Debug.Log("Game start here (spawn player / campfire)");
     }
 }
