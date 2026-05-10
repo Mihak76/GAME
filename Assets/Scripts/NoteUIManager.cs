@@ -44,13 +44,18 @@ public class NoteUIManager : MonoBehaviour
         Input.ResetInputAxes();
     }
 
-    void CloseNote()
-    {
-        notePanel.SetActive(false);
-        noteOpen = false;
+ void CloseNote()
+{
+    notePanel.SetActive(false);
+    noteOpen = false;
+    Input.ResetInputAxes();
 
-        Input.ResetInputAxes();
+    // preveri ce smo zbrali vse note
+    if (NoteManager.Instance.collectedNotes >= NoteManager.Instance.totalNotes)
+    {
+        NoteManager.Instance.outroPanel.SetActive(true);
     }
+}
 
     public bool IsOpen()
     {

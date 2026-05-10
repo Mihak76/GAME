@@ -1,6 +1,6 @@
-using TMPro;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
 
 public class NoteManager : MonoBehaviour
 {
@@ -11,12 +11,13 @@ public class NoteManager : MonoBehaviour
 
     public List<string> collectedNoteTexts = new List<string>();
 
+    public GameObject outroPanel;
     public TextMeshProUGUI counterText;
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
     }
 
     public void AddNote(string noteText)
@@ -27,21 +28,17 @@ public class NoteManager : MonoBehaviour
         UpdateUI();
 
         if (collectedNotes >= totalNotes)
-        {
             AllNotesCollected();
-        }
     }
 
     void UpdateUI()
     {
         if (counterText != null)
-        {
             counterText.text = collectedNotes + " / " + totalNotes;
-        }
     }
 
-    void AllNotesCollected()
-    {
-        Debug.Log("ALL NOTES COLLECTED → END GAME TRIGGER");
-    }
+  void AllNotesCollected()
+{
+    // outro se zdaj sprozil iz NoteUIManager ko zapres zadnjo noto
+}
 }
