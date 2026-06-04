@@ -3077,7 +3077,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 0.141
+  weight: 0.526
   sharedProfile: {fileID: 11400000, guid: d47c601055403b445ab41d04027c6f03, type: 2}
 --- !u!4 &40956876
 Transform:
@@ -16332,7 +16332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 419b474d3d31ef54e9c101d6e7213aee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 419b474d3d31ef54e9c101d6e7213aee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -91287,7 +91287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 419b474d3d31ef54e9c101d6e7213aee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 419b474d3d31ef54e9c101d6e7213aee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -139115,7 +139115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 419b474d3d31ef54e9c101d6e7213aee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 419b474d3d31ef54e9c101d6e7213aee, type: 3}
       propertyPath: m_LocalPosition.z
