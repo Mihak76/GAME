@@ -39,7 +39,7 @@ public class PlayerMovement2 : MonoBehaviour
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; // prepreči "tonjenje" playerja
+            velocity.y = -2f; // prepreči tonjenje v tla
         }
 
         // Get input
@@ -53,10 +53,16 @@ public class PlayerMovement2 : MonoBehaviour
             isCrouching = !isCrouching;
             targetHeight = isCrouching ? crouchHeight : standingHeight;
         }
-        controller.height = Mathf.Lerp(controller.height, targetHeight, Time.deltaTime * crouchTransitionSpeed);
+
+        controller.height = Mathf.Lerp(
+            controller.height,
+            targetHeight,
+            Time.deltaTime * crouchTransitionSpeed
+        );
 
         // Determine current speed
         float currentSpeed = speed;
+
         if (isCrouching)
         {
             currentSpeed = crouchSpeed;
@@ -69,12 +75,21 @@ public class PlayerMovement2 : MonoBehaviour
         // Move player
         controller.Move(move * currentSpeed * Time.deltaTime);
 
+        // Jump
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
         // Gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
         // Animation
-        float moveAmount = new Vector3(x, 0, z).magnitude; // koliko se premikaš
-        animator.SetFloat("Speed", moveAmount);
+        if (animator != null)
+        {
+            float moveAmount = new Vector3(x, 0, z).magnitude;
+            animator.SetFloat("Speed", moveAmount);
+        }
     }
 }
