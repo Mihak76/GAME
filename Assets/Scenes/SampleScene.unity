@@ -64052,7 +64052,7 @@ MonoBehaviour:
   controller: {fileID: 773835862}
   speed: 13
   gravity: -100
-  jumpHeight: 3.6
+  jumpHeight: 4.46
   crouchHeight: 1
   standingHeight: 2
   crouchSpeed: 2
