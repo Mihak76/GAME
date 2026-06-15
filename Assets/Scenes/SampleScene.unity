@@ -589,10 +589,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &2223582
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8028,10 +8028,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &97000600
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9638,10 +9638,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &115112043
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11969,10 +11969,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &135345757
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22836,10 +22836,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &268357509
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51241,10 +51241,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &560788209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53065,10 +53065,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &575908596
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62348,10 +62348,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &692743367
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68567,10 +68567,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &756633396
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -72773,10 +72773,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.63
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &812060128
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -78452,10 +78452,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &867779759
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -109512,10 +109512,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &1229655918
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -112007,10 +112007,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &1260869760
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -113404,10 +113404,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &1278264522
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -116586,10 +116586,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &1319432063
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -143542,10 +143542,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &1671266011
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -150364,10 +150364,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &1698209411
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -153154,10 +153154,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &1728772285
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -162521,10 +162521,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &1852541798
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -180684,10 +180684,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &2040728672
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -182282,10 +182282,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2.81
   m_Height: 5.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!23 &2063015148
 MeshRenderer:
   m_ObjectHideFlags: 0
