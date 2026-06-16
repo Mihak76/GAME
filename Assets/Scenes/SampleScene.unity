@@ -28246,7 +28246,7 @@ MonoBehaviour:
   speed: 3
   isOpen: 0
   player: {fileID: 773835863}
-  interactDistance: 5
+  interactDistance: 7
 --- !u!4 &339755217
 Transform:
   m_ObjectHideFlags: 0
@@ -40993,7 +40993,7 @@ MonoBehaviour:
   speed: 3
   isOpen: 0
   player: {fileID: 773835863}
-  interactDistance: 5
+  interactDistance: 7
 --- !u!4 &443342406
 Transform:
   m_ObjectHideFlags: 0
@@ -43660,7 +43660,7 @@ MonoBehaviour:
   speed: 3
   isOpen: 0
   player: {fileID: 773835863}
-  interactDistance: 5
+  interactDistance: 7
 --- !u!4 &481916018
 Transform:
   m_ObjectHideFlags: 0
@@ -59184,7 +59184,7 @@ MonoBehaviour:
   speed: 3
   isOpen: 0
   player: {fileID: 773835863}
-  interactDistance: 5
+  interactDistance: 7
 --- !u!4 &653560699
 Transform:
   m_ObjectHideFlags: 0
@@ -64823,7 +64823,7 @@ MonoBehaviour:
   speed: 3
   isOpen: 0
   player: {fileID: 773835863}
-  interactDistance: 5
+  interactDistance: 7
 --- !u!4 &726817566
 Transform:
   m_ObjectHideFlags: 0
@@ -108660,7 +108660,7 @@ MonoBehaviour:
   speed: 3
   isOpen: 0
   player: {fileID: 773835863}
-  interactDistance: 5
+  interactDistance: 7
 --- !u!1 &1244226840
 GameObject:
   m_ObjectHideFlags: 0
@@ -134653,7 +134653,7 @@ MonoBehaviour:
   speed: 3
   isOpen: 0
   player: {fileID: 773835863}
-  interactDistance: 5
+  interactDistance: 7
 --- !u!4 &1598065736
 Transform:
   m_ObjectHideFlags: 0
@@ -159215,7 +159215,7 @@ MonoBehaviour:
   speed: 3
   isOpen: 0
   player: {fileID: 773835863}
-  interactDistance: 5
+  interactDistance: 7
 --- !u!4 &1847042432
 Transform:
   m_ObjectHideFlags: 0
